@@ -103,3 +103,22 @@
     ```
 
     此时运行打包命令，然后打开dist文件夹下的index.html就会发现react已经正常开始工作了  
+
+## 使用webpack的[DevServer](https://github.com/webpack/webpack-dev-server)来便捷开发项目  
+
+1. 安装webpack-dev-server:`npm install webpack-dev-server --save-dev`  
+
+2. 在webpack配置文件中添加如下配置：  
+
+   ``` JavaScript
+     devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 8080,
+    }
+    ```
+
+3. 在package.json中的scripts中新增命令：  
+`"dev": "webpack-dev-server --config config/index.js"`  
+此时，在浏览器中打开localhost:8080就可以进行所写即所见的开发了
+
