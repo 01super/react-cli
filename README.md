@@ -67,5 +67,39 @@
 
 1. 添加react的依赖：`npm i react react-dom react-router-dom`  
 
-2. 此时编写react代码还不能正常工作，因为还不能解析jsx语法。引入babel来解析jsx语法  
-   `npm install babel-loader babel-core babel-preset-env`  
+2. 此时编写react代码还不能正常工作，因为还不能解析react(jsx语法)。  
+   引入babel来解析jsx语法  
+   babel的[核心依赖](https://babeljs.io/docs/en/usage)：`npm install --save-dev @babel/core @babel/cli @babel/preset-env`  
+   转换react的依赖[@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react#babelrcjs)： `npm install --save-dev @babel/preset-react babel-loader`  
+   再在根目录下添加.babelrc.js配置文件：  
+
+   ``` javascript
+   module.exports = {
+        presets: [
+            [
+            "@babel/preset-react",
+            ],
+        ],
+    };
+   ```
+
+   最后在webpack配置中module增加babel-loader:  
+
+    ``` javascript
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    }
+    ```
+
+    此时运行打包命令，然后打开dist文件夹下的index.html就会发现react已经正常开始工作了  
