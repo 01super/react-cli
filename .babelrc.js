@@ -1,10 +1,10 @@
 module.exports = {
   presets: [
-    [
-      "@babel/preset-react",
-      // {
-      //   development: process.env.BABEL_ENV === "development",
-      // },
-    ],
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    // {
+    //   development: process.env.BABEL_ENV === "development",
+    // },
   ],
 };

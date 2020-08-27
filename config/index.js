@@ -3,15 +3,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index",
   output: {
     path: path.resolve(__dirname, "../dist"), // 绝对路径
     filename: "main.js",
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",

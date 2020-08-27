@@ -122,3 +122,31 @@
 `"dev": "webpack-dev-server --config config/index.js"`  
 此时，在浏览器中打开localhost:8080就可以进行所写即所见的开发了
 
+## 添加typescript支持  
+
+1. 安装依赖`npm i -D @babel/preset-typescript typescript`  
+
+2. 在.babel.js中的presets中添加`@babel/preset-typescript`  
+    同时在命令行工具中输入`tsc --init`来生成typescript的配置文件  
+    在其配置文件中的compilerOptions中添加`jsx": "preserve`配置
+    目的是禁用ts的转react而使用babel
+
+3. 在webpack配置文件中新增配置，使webpack能处理ts、tsx文件：  
+
+    ``` javascript
+    entry: "./src/index",
+    resolve: {
+            extensions: [".ts", ".tsx", ".js"],
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|ts|tsx)$/,
+                exclude: /node_modules/,
+                use: {
+                loader: "babel-loader",
+                },
+            },
+        ],
+    },
+    ```
