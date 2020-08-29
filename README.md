@@ -7,7 +7,7 @@
   - 每次打包前自动清理上一次的打包文件  
   - 配置devServer  
   - 配置热重载HMR  
-  - 配置文件处理loader(图片、css以及其他文件)  
+  - 配置文件处理loader(图片、css以及其他静态资源文件)  
 - 支持react(配置babel解析react)
 - 支持typescript(配置babel解析typescript)  
 - 支持less并且做css样式兼容(加浏览器前缀postcss)和css模块化  
@@ -169,3 +169,14 @@
 
     此时就可以将src目录下的文件改为ts或tsx文件了，改完之后会发现一个问题，react组件的tsx文件的import语句很多都出现了ts报错，这是因为react等库没有引入声明文件导致，引入对应的库的声明文件即可解决：  
     `npm i -D @types/react @types/react-dom @types/react-router-dom`
+
+## 处理静态资源  
+
+1. 现在通过import图片然后将值赋值的img的src属性时还不能正确处理  
+    所以需要loader对图片文件(不仅能处理图片文件，还能处理字体、视屏、音频等文件)进行处理，  
+    这里我们使用[url-loader](https://github.com/webpack-contrib/url-loader)：`npm i url-loader file-loader -D`  
+    file-loader和url-loader的区别：  
+    - file-loader: 对静态资源进行处理，打包时将对应的文件打包到指定的文件夹，以便网页能够找到正确的资源文件  
+    - url-loader: 包含了file-loader,但是还能将文件转换成base64编码嵌入到代码中，这样就可以减少http请求  
+    **注意：** 只适合将小文件base64化，url-loader包含了file-loader，使用url-loader同时还需安装file-loader  
+    按照文档对webpack进行修改后便可以支持文件的引入了

@@ -22,8 +22,10 @@
     "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "typescript": "^4.0.2",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
