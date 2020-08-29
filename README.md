@@ -1,6 +1,22 @@
 # 小白教你从零搭建基于Webpack4+Babel7+TypeScrip的React开发环境  
 
-## 先让你的webpack跑起来  
+**功能要点：**  
+
+- 配置基础的webpack功能  
+  - 自动生成打包后与打包文件关联的html文件  
+  - 每次打包前自动清理上一次的打包文件  
+  - 配置devServer  
+  - 配置热重载HMR  
+  - 配置文件处理loader(图片、css以及其他文件)  
+- 支持react(配置babel解析react)
+- 支持typescript(配置babel解析typescript)  
+- 支持less并且做css样式兼容(加浏览器前缀postcss)和css模块化  
+- 优化webpack打包(配置splitChunks)  
+- commit提交规范  
+- eslint代码检测和prettier代码格式化统一项目代码风格  
+- jest测试
+
+## 先让webpack跑起来  
 
 1. 初始化项目，安装webpack所需依赖
 
