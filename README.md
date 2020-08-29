@@ -1,4 +1,4 @@
-# 小白教你从零搭建基于Webpack4+Babel7+TypeScrip的React开发环境  
+# 从零搭建基于Webpack4+Babel7+TypeScrip的React开发环境  
 
 **功能要点：**  
 
@@ -8,7 +8,8 @@
   - 配置devServer  
   - 配置热重载HMR  
   - 配置文件处理loader(图片、css以及其他静态资源文件)  
-- 支持react(配置babel解析react)
+  - 拆分wenpack的开发和打包的配置文件
+- 支持react(配置babel解析react)，解析class组件中的箭头函数
 - 支持typescript(配置babel解析typescript)  
 - 支持less并且做css样式兼容(加浏览器前缀postcss)和css模块化  
 - 优化webpack打包(配置splitChunks)  
