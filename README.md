@@ -150,3 +150,6 @@
         ],
     },
     ```
+
+    此时就可以将src目录下的文件改为ts或tsx文件了，改完之后会发现一个问题，react组件的tsx文件的import语句很多都出现了ts报错，这是因为react等库没有引入声明文件导致，引入对应的库的声明文件即可解决：  
+    `npm i -D @types/react @types/react-dom @types/react-router-dom`
