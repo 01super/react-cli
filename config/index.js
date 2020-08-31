@@ -9,6 +9,11 @@ module.exports = {
     filename: "main.js",
   },
   resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "../src"),
+    },
+  },
+  resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
   module: {
