@@ -181,3 +181,24 @@
     - url-loader: 包含了file-loader,但是还能将文件转换成base64编码嵌入到代码中，这样就可以减少http请求  
     **注意：** 只适合将小文件base64化，url-loader包含了file-loader，使用url-loader同时还需安装file-loader  
     按照文档对webpack进行修改后便可以支持文件的引入了
+
+## [jest](https://jestjs.io/)测试  
+
+1. 安装jest，babel-jest,@types/jest，再添加jest.config.js配置文件：  
+
+    ``` javascript
+    module.exports = {
+        collectCoverage: false,
+        rootDir: path.join(__dirname, "src"),
+        moduleNameMapper: {
+            "^@/(.*)$": "<rootDir>/$1",
+        },
+        collectCoverageFrom: [
+            "**/*.{js,ts,tsx}",
+            "!**/node_modules/**",
+            "!**/vendor/**",
+        ],
+    };
+    ```  
+
+    就可以在__tests__文件夹下建立测试文件进行测试，也可以通过配置testMatch去自定义测试文件的路径。测试react的DOM可以使用enzyme库  
