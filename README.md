@@ -202,3 +202,16 @@
     ```  
 
     就可以在__tests__文件夹下建立测试文件进行测试，也可以通过配置testMatch去自定义测试文件的路径。测试react的DOM可以使用enzyme库  
+
+## 支持[less](https://webpack.js.org/loaders/less-loader/)  
+
+1.安装依赖`npm install less less-loader --save-dev`  
+    **babel的presets和webpack的loader的执行顺序都是从后往前执行**  
+    按照文档编辑好webpack的配置之后，添加less文件来测试，会发现还是无法处理less文件，  
+    这是因为虽然此时webpack能够将less转为css，但是webpack还不能处理css文件  
+2.安装css-loader和style-loader来处理css文件：  
+    `npm install style-loader css-loader --save-dev`  
+    然后修改webpack配置，在处理less文件的loader中增加css-loader和style-loader  
+    需要注意loader的顺序，添加完成后，重新启动项目，此时就能够支持less文件了。  
+3.使用[postcss-loader](https://github.com/webpack-contrib/postcss-loader) + [autoprefixer](https://github.com/postcss/autoprefixer#readme)来让的css兼容更多的浏览器,autoprefixer插件会自动在需要兼容的css属性前面加上浏览器前缀。  
+4.开启css modules，防止各个页面间的css，在css-loader中的options配置modules: true  

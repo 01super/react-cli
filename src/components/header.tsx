@@ -1,9 +1,13 @@
 import React from "react";
 import img1 from "../assets/img1.png";
 import img2 from "../assets/img2.png";
+import styles from "./header.less";
+
 export default () => (
   <>
-    <header style={{ color: "red", fontSize: 30 }}>Header test</header>
+    <header className={styles.hh} style={{ color: "red", fontSize: 30 }}>
+      Header test
+    </header>
     <section>
       <h2>url-loader test</h2>
       <label htmlFor="img1">大于8k</label>

@@ -10,7 +10,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "../src"),
+      "@": path.resolve(__dirname, "../src"), // 配置别名，方便引入
     },
   },
   resolve: {
@@ -31,9 +31,41 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
-              limit: 8192,
+              limit: 8192, // 超过限制大小，会由file-loader去处理，所以需要安装file-loader
             },
           },
+        ],
+      },
+      {
+        test: /\.(le|c)ss$/,
+        exclude: /node_modules/, // 排除node_modules文件夹下面的样式文件
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true, // 开启css modules
+              importLoaders: 2, // css-loader前的loader数量
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: [
+                require("autoprefixer")({
+                  // 给css属性加上浏览器前缀
+                  overrideBrowserslist: [
+                    "last 10 Chrome versions",
+                    "last 5 Firefox versions",
+                    "Safari >= 6",
+                    "ie > 9",
+                    "> 2%",
+                  ],
+                }),
+              ],
+            },
+          },
+          "less-loader",
         ],
       },
     ],
@@ -47,6 +79,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
+    host: "0.0.0.0", // 这样配置可以使其它设备在同一局域网中也能够访问到
     port: 8080,
   },
 };
