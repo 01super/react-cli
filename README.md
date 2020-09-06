@@ -8,7 +8,7 @@
   - 配置devServer  
   - 配置热重载HMR  
   - 配置文件处理loader(图片、css以及其他静态资源文件)  
-  - 拆分wenpack的开发和打包的配置文件
+  - 拆分webpack的开发和打包的配置文件
 - 支持react(配置babel解析react)，解析class组件中的箭头函数
 - 支持typescript(配置babel解析typescript)  
 - 支持less并且做css样式兼容(加浏览器前缀postcss)和css模块化  
@@ -205,13 +205,32 @@
 
 ## 支持[less](https://webpack.js.org/loaders/less-loader/)  
 
-1.安装依赖`npm install less less-loader --save-dev`  
+1. 安装依赖`npm install less less-loader --save-dev`  
     **babel的presets和webpack的loader的执行顺序都是从后往前执行**  
     按照文档编辑好webpack的配置之后，添加less文件来测试，会发现还是无法处理less文件，  
     这是因为虽然此时webpack能够将less转为css，但是webpack还不能处理css文件  
-2.安装css-loader和style-loader来处理css文件：  
+2. 安装css-loader和style-loader来处理css文件：  
     `npm install style-loader css-loader --save-dev`  
     然后修改webpack配置，在处理less文件的loader中增加css-loader和style-loader  
     需要注意loader的顺序，添加完成后，重新启动项目，此时就能够支持less文件了。  
 3.使用[postcss-loader](https://github.com/webpack-contrib/postcss-loader) + [autoprefixer](https://github.com/postcss/autoprefixer#readme)来让的css兼容更多的浏览器,autoprefixer插件会自动在需要兼容的css属性前面加上浏览器前缀。  
 4.开启css modules，防止各个页面间的css，在css-loader中的options配置modules: true  
+
+## 代码约束
+
+1. ESLint检查  
+    - 按照[eslint](https://eslint.org/docs/user-guide/getting-started)官网的介绍安装并初始化eslint的配置文件  
+    - 在ts项目中必须执行解析器为@typescript-eslint/parser，才能正确的检测和规范TS代,  
+        所以需要在eslint配置文件中将parser指定为`@typescript-eslint/parser`,同时使用安装它的依赖  
+        `npm install -D @typescript-eslint/parser`  
+    - 必须配置eslint中的parserOptions来指定需要支持的js特性  
+    - 根据自己需求来配置eslint中的[rules](https://eslint.org/docs/rules/)  
+    - 在项目根路径下添加.eslintignore文件来忽略不需要eslint来检查的文件  
+    - 使用eslint检查代码，使用prettier来格式化代码，统一代码风格  
+
+2. 结合Prettier和ESLint来规范代码  
+    - 首先安装依赖`npm i -D prettier eslint-config-prettier eslint-plugin-prettier`  
+        - eslint-config-prettier：解决ESLint中的样式规范和prettier中样式规范的冲突，以prettier的样式规范为准，使ESLint中的样式规范自动失效  
+        - eslint-plugin-prettier：将prettier作为ESLint规范来使用  
+    - 在项目的根目录下创建.prettierrc.js配置文件文件根据自己的风格来配置代码的格式  
+    - 修改eslint配置文件,在其中添加`plugins: ["prettier"], extends: ["plugin:prettier/recommended", "prettier/react"]`  
