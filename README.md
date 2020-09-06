@@ -234,3 +234,5 @@
         - eslint-plugin-prettier：将prettier作为ESLint规范来使用  
     - 在项目的根目录下创建.prettierrc.js配置文件文件根据自己的风格来配置代码的格式  
     - 修改eslint配置文件,在其中添加`plugins: ["prettier"], extends: ["plugin:prettier/recommended", "prettier/react"]`  
+    - https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md 
+    - [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb?spm=a2c6h.12873639.0.0.476a1fb8KSXHN9) 
