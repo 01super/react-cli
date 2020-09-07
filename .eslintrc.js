@@ -18,12 +18,12 @@ module.exports = {
     'prettier/react'
   ],
   parser: '@typescript-eslint/parser', //ESLint的解析器，用于解析typescript，从而检查和规范Typescript代码
-  settings: {
-    react: {
-      pragma: 'React',
-      version: 'detect'
-    }
-  },
+  // settings: {
+  //   react: {
+  //     pragma: 'React',
+  //     version: 'detect'
+  //   }
+  // },
   parserOptions: {
     project: 'tsconfig.json',
     sourceType: 'module',
