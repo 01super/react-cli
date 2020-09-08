@@ -7,6 +7,7 @@
     "start": "npm run dev",
     "test": "jest",
     "lint": "eslint --ext .ts,.tsx,.js src",
+    "precommit": "eslint --ext .ts,.tsx,.js src",
     "lint:fix": "eslint --ext .ts,.tsx,.js src --fix",
     "build": "webpack --config config/index.js",
     "dev": "webpack-dev-server --config config/index.js"
@@ -41,9 +42,11 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.0",
     "jest": "^26.4.2",
     "less": "^3.12.2",
     "less-loader": "^7.0.0",
+    "lint-staged": "^10.3.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.1.1",
     "style-loader": "^1.2.1",
@@ -57,5 +60,18 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,css,less,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,ts,tsx}": "npm run lint-staged"
   }
 }
