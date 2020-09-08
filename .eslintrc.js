@@ -6,8 +6,6 @@ module.exports = {
     es6: true // 额外支持新的 ES6 全局变量, 如Set和Map
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
     'airbnb',
     'airbnb/hooks',
     'plugin:react-hooks/recommended',
