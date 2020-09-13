@@ -276,6 +276,53 @@
          }
      ```
 
-   - （问题 2）
+2. **webpack 打包优化**
 
-2. webpack 打包优化
+   1. 添加[cross-env](https://github.com/kentcdodds/cross-env#readme)设置 webpack 的打包模式`npm install --save-dev cross-env`
+   2. 使用[webpack-merge](https://github.com/survivejs/webpack-merge)拆分 webpack 的配置文件
+   3. 配置 splitChunks：
+
+      ```javascript
+        optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+          chunks: 'all',
+          minSize: 30000,
+          maxAsyncRequests: 5, // 按需加载时候最大的并行请求数
+          maxInitialRequests: 4, // 最大初始化请求数，该属性决定入口最多分成的代码块数量，太小的值会使你无论怎么分割，都无法让入口的代码块变小。
+          automaticNameDelimiter: '~', // 打包分割符
+          name: !isDevMode, // 值为 false 时，适合生产模式使用，webpack 会避免对 chunk 进行不必要的命名，以减小打包体积
+          cacheGroups: {
+            vendors: {
+              // 项目基本框架等
+              chunks: 'all',
+              test: /(react|react-dom|react-router-dom)/,
+              priority: 100,
+              name: 'vendors'
+            },
+            'async-commons': {
+              // 异步加载公共包、组件等
+              chunks: 'async',
+              minChunks: 2, // 引用次数
+              name: 'async-commons',
+              priority: 90
+            },
+            antd: {
+              chunks: 'all',
+              test: /antd/,
+              minChunks: 1,
+              name: 'antd',
+              priority: 110
+            },
+            commons: {
+              // 其他同步加载公共包
+              chunks: 'all',
+              minChunks: 2,
+              name: 'commons',
+              priority: 80
+            }
+            // default: false
+          }
+        }
+      }
+      ```
