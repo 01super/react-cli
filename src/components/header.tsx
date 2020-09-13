@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';
 import styles from './header.less';
@@ -18,6 +19,7 @@ const Header: React.FC = () => (
         小于8k
         <img src={img2} id="img2" alt="" />
       </div>
+      <Button type="primary">Test</Button>
     </section>
   </>
 );

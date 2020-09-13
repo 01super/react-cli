@@ -232,3 +232,50 @@
    - 修改 eslint 配置文件,在其中添加`plugins: ["prettier"], extends: ["plugin:prettier/recommended", "prettier/react"]`
    - 检查 typescript 文件的错误[typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md)
    - 使用常用的 Airbnb 规范：[eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+
+## 添加 UI 组件库(antd)并做打包优化
+
+1. 添加 antd 并配置按需加载：
+
+   - 安装 antd 和按需加载的依赖  
+      `npm install antd --save`  
+      `npm install babel-plugin-import --save-dev`
+   - 在 babelrc.js 的 plugins 中添加按需加载的配置：
+
+     ```javascript
+     [
+       'import',
+       {
+         libraryName: 'antd',
+         style: 'css', // 为true会加载less文件，当需要配置antd主题的时候要改为true
+         libraryDirectory: 'es'
+       }
+     ];
+     ```
+
+   - 由于 antd 的 css 样式文件都是已经处理好了的，所以不需要使用 postcss-loader 去做兼容处理，所以可以额外配置一个 webpack 中 loader 排除 node_modules 文件夹中的样式去专门处理 antd 的样式
+
+     ```javascript
+           {
+           test: /\.(le|c)ss$/,
+           include: /node_modules/, // 排除node_modules文件夹下面的样式文件
+           use: ['style-loader', 'css-loader']
+           }
+     ```
+
+   - [问题 1](https://github.com/ant-design/ant-motion/issues/44)：如果需要使用自定义 antd 组件样式的功能，需要将 babel 中按需引入的的配置中的 style 改为 true，这样才会去加载 less 文件。style 改为 true 之后，使用当前的配置去运行项目的时候会出现报错，不能正常加载 antd 的样式文件，需要开启 webpack 的 less-loader 中 javascriptEnable 选项
+
+     ```javascript
+          {
+           loader: 'less-loader',
+           options: {
+             lessOptions: {
+               javascriptEnabled: true
+             }
+           }
+         }
+     ```
+
+   - （问题 2）
+
+2. webpack 打包优化
