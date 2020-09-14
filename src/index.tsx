@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/header';
+import Home from './pages/home';
 
-ReactDOM.render(<Header />, document.getElementById('root'));
+ReactDOM.render(<Home />, document.getElementById('root'));

@@ -167,6 +167,8 @@
    此时就可以将 src 目录下的文件改为 ts 或 tsx 文件了，改完之后会发现一个问题，react 组件的 tsx 文件的 import 语句很多都出现了 ts 报错，这是因为 react 等库没有引入声明文件导致，引入对应的库的声明文件即可解决：  
    `npm i -D @types/react @types/react-dom @types/react-router-dom`
 
+4. 使用[babel-plugin-transform-class-properties](https://babeljs.io/docs/en/babel-plugin-transform-class-properties)来支持 class 组件
+
 ## 处理静态资源
 
 1. 现在通过 import 图片然后将值赋值的 img 的 src 属性时还不能正确处理  
