@@ -27,12 +27,10 @@ module.exports = {
     sourceType: 'module',
     allowImportExportEverywhere: true,
     tsconfigRootDir: __dirname,
-    ecmaVersion: 2019, // 指定想要使用的 ECMAScript 版本
+    ecmaVersion: 12, // 指定想要使用的 ECMAScript 版本
     ecmaFeatures: {
       jsx: true //指定ESLint可以解析JSX语法
-    },
-    ecmaVersion: 12,
-    sourceType: 'module'
+    }
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {

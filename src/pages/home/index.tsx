@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Mine from '@/pages/mine';
 
 class Home extends Component {
   state = {
@@ -14,7 +15,12 @@ class Home extends Component {
 
   render(): JSX.Element {
     const { title } = this.state;
-    return <div onClick={this.handleClick}>{title}</div>;
+    return (
+      <section>
+        <div onClick={this.handleClick}>{title}</div>
+        <Mine />
+      </section>
+    );
   }
 }
 export default Home;
