@@ -390,6 +390,19 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'prettier/prettier': 'error',
     'react/prop-types': 0,
-    'no-continue': 0
-  }
+    'no-continue': 0,
+    // @tip1
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
+  },
+  overrides: [
+    {
+      // 配合@tip1来实现禁用对js的函数类型警告，启用ts和tsx文件的函数返回类型检查
+      // https://github.com/typescript-eslint/typescript-eslint/blob/v4.1.0/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md#configuring-in-a-mixed-jsts-codebase
+      // enable the rule specifically for TypeScript files
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': ['error']
+      }
+    }
+  ]
 };

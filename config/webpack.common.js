@@ -1,17 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const isDevMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: './src/index',
+  entry: './src',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../src') // 配置别名，方便引入
-    }
-  },
-  resolve: {
+    },
     extensions: ['.ts', '.tsx', '.js']
   },
   module: {
@@ -84,7 +83,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new WebpackBar()
   ],
   optimization: {
     runtimeChunk: 'single',

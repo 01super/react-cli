@@ -16,7 +16,8 @@ const developmentConfig = {
     open: true,
     host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
     port: 8080,
-    hot: true
+    hot: true,
+    stats: 'errors-only'
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };
