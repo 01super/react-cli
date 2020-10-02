@@ -17,7 +17,8 @@ const developmentConfig = {
     host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
     port: 8080,
     hot: true,
-    stats: 'errors-only'
+    stats: 'errors-only', // 编译时的输出
+    historyApiFallback: true // 解决刷新时路由找不到页面报404
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };
