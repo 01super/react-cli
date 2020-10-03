@@ -1,16 +1,22 @@
-interface IClock {
-  currentTime: Date;
-  setTime(d: Date): void;
-}
+const password = '123456';
+// 存取器
+class Employee {
+  private _name = '';
 
-export default class Clock implements IClock {
-  currentTime = new Date();
-
-  setTime(d: Date): void {
-    this.currentTime = d;
+  get name(): string {
+    return this._name;
   }
 
-  getTime(): Date {
-    return this.currentTime;
+  set name(newName: string) {
+    if (password === '123456') {
+      this._name = newName;
+    } else {
+      console.error('forbid');
+    }
   }
 }
+
+const empl = new Employee();
+console.log(empl.name);
+empl.name = '234';
+console.log(empl.name);

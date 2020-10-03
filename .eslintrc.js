@@ -34,6 +34,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    // 换行符使用lf
     'linebreak-style': ['error', 'unix'],
     /** 箭头函数风格，按需使用花括号 */
     'arrow-body-style': ['error', 'as-needed'],
@@ -148,7 +149,7 @@ module.exports = {
     /** 禁止尾随空格 */
     'no-trailing-spaces': 'error',
     /** 标识符中悬挂下划线 */
-    'no-underscore-dangle': 'error',
+    'no-underscore-dangle': 'off',
     /** 禁止出现不可到达的代码 */
     'no-unreachable': 'error',
     /** 禁止无用的表达式 */
@@ -263,18 +264,12 @@ module.exports = {
       {
         selector: 'variable',
         format: ['camelCase', 'UPPER_CASE', 'snake_case', 'PascalCase'],
-        leadingUnderscore: 'forbid'
+        leadingUnderscore: 'allow'
       },
-      // {
-      //     'selector': 'variable',
-      //     'types': ['function'],
-      //     'format': ['camelCase', 'UPPER_CASE', 'snake_case', 'PascalCase'],
-      //     'leadingUnderscore': 'forbid',
-      // },
       {
         selector: 'property',
         format: ['camelCase', 'UPPER_CASE', 'snake_case', 'PascalCase'],
-        leadingUnderscore: 'forbid'
+        leadingUnderscore: 'allow'
       },
       {
         selector: 'class',
