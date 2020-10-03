@@ -328,3 +328,8 @@
         }
       }
       ```
+
+3. 编辑器配置  
+   添加.editorconfig 文件，统一设置换行符 `end_of_line = lf`  
+   eslint rule 添加： `'linebreak-style': ['error', 'unix']`  
+   prettier 添加： `endOfLine: 'lf'`

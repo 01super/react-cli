@@ -34,6 +34,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'linebreak-style': ['error', 'unix'],
     /** 箭头函数风格，按需使用花括号 */
     'arrow-body-style': ['error', 'as-needed'],
     /** 变量名规则，禁用以使用 ts 规则 */
@@ -71,7 +72,7 @@ module.exports = {
     'max-lines': ['warn', 1000],
     /** 仅允许 console.warn/error  */
     'no-console': [
-      'error',
+      1,
       {
         allow: ['warn', 'error']
       }
