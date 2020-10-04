@@ -388,7 +388,8 @@ module.exports = {
     'react/prop-types': 0,
     'no-continue': 0,
     // @tip1
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'jsx-a11y/media-has-caption': 'off'
   },
   overrides: [
     {

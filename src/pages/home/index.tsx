@@ -1,31 +1,21 @@
-import React, { Component } from 'react';
-import Mine from '@/pages/mine';
+import React from 'react';
+import mp4 from '@/assets/jest.mov';
+import style from './style.less';
 
-class Home extends Component {
-  state = {
-    title: 12,
-    name: 23
-  };
-
-  handleClick = (): void => {
-    const b: P = {
-      name: 123
-    };
-    const a = 23;
-    if (a === 23) {
-      this.setState({ title: 88, ...b });
-    }
-  };
-
-  render(): JSX.Element {
-    const { title, name } = this.state;
-    return (
-      <section>
-        <div onClick={this.handleClick}>{title}</div>
-        <div>{name}</div>
-        <Mine />
+function Home(): JSX.Element {
+  return (
+    <main className={style.main}>
+      <section className={style.videoWrapper}>
+        <canvas className={style.danmuVideo} />
+        <video src={mp4} controls className={style.danmuCanvas} />
       </section>
-    );
-  }
+      <section className={style.tools}>
+        <input type="text" className={style.input} />
+        <input type="color" className={style.color} />
+        <input type="button" value="发送" className={style.btn} />
+      </section>
+    </main>
+  );
 }
+
 export default Home;

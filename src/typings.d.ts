@@ -5,6 +5,8 @@ declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
+declare module '*.mp4';
+declare module '*.mov';
 
 declare module '*.less';
 interface P {
