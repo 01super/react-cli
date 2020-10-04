@@ -8,6 +8,9 @@ function Home(): JSX.Element {
   let danmuVideo: HTMLVideoElement;
   let danmuCanvas: HTMLCanvasElement;
   let videoDanmu: VideoDanmu;
+  let oInput: HTMLInputElement;
+  let oColor: HTMLInputElement;
+  let oBtn: HTMLInputElement;
   useEffect(() => {
     init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -15,6 +18,9 @@ function Home(): JSX.Element {
   function init() {
     danmuCanvas = document.querySelector('#canvas') as HTMLCanvasElement;
     danmuVideo = document.querySelector('#video') as HTMLVideoElement;
+    oInput = document.querySelector('#input') as HTMLInputElement;
+    oColor = document.querySelector('#color-input') as HTMLInputElement;
+    oBtn = document.querySelector('#btn') as HTMLInputElement;
     videoDanmu = new VideoDanmu(danmuCanvas, danmuVideo, data);
     bindEvent();
   }
@@ -22,6 +28,8 @@ function Home(): JSX.Element {
   function bindEvent() {
     danmuVideo.addEventListener('play', handleVideoPlay, false);
     danmuVideo.addEventListener('pause', handleVidelPaused, false);
+    danmuVideo.addEventListener('seeked', handleVidelSeeked, false);
+    oBtn.addEventListener('click', handleSendClick, false);
   }
 
   function handleVideoPlay() {
@@ -33,6 +41,28 @@ function Home(): JSX.Element {
     videoDanmu.videoPaused = true;
   }
 
+  // 拖动进度条事件
+  function handleVidelSeeked() {
+    videoDanmu.reset();
+  }
+
+  function handleSendClick() {
+    if (videoDanmu.videoPaused) return;
+    let { value } = oInput;
+    const { value: color } = oColor;
+    if (!value) return;
+    value = value.trim();
+    const { currentTime } = videoDanmu.video;
+    const _data: DanmuData = {
+      content: value,
+      color,
+      runTime: currentTime,
+      speed: 2
+    };
+    videoDanmu.addDanmu(_data);
+    oInput.value = '';
+  }
+
   return (
     <main className={style.main}>
       <section className={style.videoWrapper}>
@@ -40,9 +70,9 @@ function Home(): JSX.Element {
         <video id="video" src={mp4} controls className={style.danmuVideo} />
       </section>
       <section className={style.tools}>
-        <input type="text" className={style.input} />
-        <input type="color" className={style.color} />
-        <input type="button" value="发送" className={style.btn} />
+        <input id="input" type="text" className={style.input} />
+        <input id="color-input" type="color" className={style.color} />
+        <input id="btn" type="button" value="发送" className={style.btn} />
       </section>
     </main>
   );

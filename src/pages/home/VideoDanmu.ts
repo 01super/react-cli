@@ -69,6 +69,22 @@ class VideoDanmu {
       }
     });
   }
+
+  addDanmu(value: DanmuData): void {
+    this.danmuPool.push(new Danmu(value, this));
+  }
+
+  reset(): void {
+    const { currentTime } = this.video;
+    this.danmuPool.forEach((danmu) => {
+      danmu.stopDrawing = false;
+      if (currentTime <= danmu.runTime) {
+        danmu.isInitialized = false;
+      } else {
+        danmu.stopDrawing = true;
+      }
+    });
+  }
 }
 
 export default VideoDanmu;
