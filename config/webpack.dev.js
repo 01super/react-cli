@@ -10,6 +10,7 @@ const developmentConfig = {
     filename: '[name].js',
     publicPath: '/'
   },
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, './'),
     compress: true,

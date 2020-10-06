@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import mp4 from '@/assets/jest.mov';
 import style from './style.less';
 import data from './data';
@@ -11,10 +11,12 @@ function Home(): JSX.Element {
   let oInput: HTMLInputElement;
   let oColor: HTMLInputElement;
   let oBtn: HTMLInputElement;
+
   useEffect(() => {
     init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   function init() {
     danmuCanvas = document.querySelector('#canvas') as HTMLCanvasElement;
     danmuVideo = document.querySelector('#video') as HTMLVideoElement;
@@ -63,6 +65,24 @@ function Home(): JSX.Element {
     oInput.value = '';
   }
 
+  const [state, setState] = useState(0);
+
+  function animate(el: HTMLDivElement): void {
+    if (state !== 0) return;
+    console.log('state: ', state);
+    el.style.width = `${el.offsetWidth + 10}px`;
+    requestAnimationFrame(() => animate(el));
+  }
+
+  useEffect(() => {
+    const box = document.querySelector('#box') as HTMLDivElement;
+    requestAnimationFrame(() => animate(box));
+    setTimeout(() => {
+      setState(1);
+    }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <main className={style.main}>
       <section className={style.videoWrapper}>
@@ -74,6 +94,17 @@ function Home(): JSX.Element {
         <input id="color-input" type="color" className={style.color} />
         <input id="btn" type="button" value="发送" className={style.btn} />
       </section>
+      <section>
+        <div className={style.box} id="box" />
+      </section>
+      <div
+        onClick={() => {
+          setState((pre: number) => pre + 1);
+          console.log('times', times);
+        }}
+      >
+        {state}
+      </div>
     </main>
   );
 }
