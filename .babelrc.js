@@ -16,6 +16,7 @@ module.exports = {
         libraryDirectory: 'es'
       }
     ],
-    'transform-class-properties'
+    'transform-class-properties',
+    '@babel/plugin-transform-runtime'
   ]
 };

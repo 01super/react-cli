@@ -19,6 +19,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
@@ -63,6 +64,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.11.2",
     "antd": "^4.6.3",
     "axios": "^0.20.0",
     "react": "^16.13.1",
