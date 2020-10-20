@@ -17,6 +17,4 @@ class Employee {
 }
 
 const empl = new Employee();
-console.log(empl.name);
 empl.name = '234';
-console.log(empl.name);
