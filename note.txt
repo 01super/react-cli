@@ -4,4 +4,4 @@
 
 3. 此项目配置了换行符统一为lf，使用时注意将编译器的换行符设为默认lf，vscode中搜索eol便可找到
 
-4. 
+4. vscode调试文件参考：https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests
