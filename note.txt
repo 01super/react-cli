@@ -1,0 +1,7 @@
+1. 有的编译器要使用.editconfig配置需要下载插件，如vscode需要安装EditorConfig for VS Code插件。具体参见官网https://editorconfig.org/
+
+2. typescript找不到定义文件：检查tsconfig.json中的compilerOptions.typeRoots，设置了他会覆盖默认的设置，需要手动加上其它的类型定义文件夹
+
+3. 此项目配置了换行符统一为lf，使用时注意将编译器的换行符设为默认lf，vscode中搜索eol便可找到
+
+4. vscode调试文件参考：https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests

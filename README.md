@@ -333,3 +333,7 @@
    添加.editorconfig 文件，统一设置换行符 `end_of_line = lf`  
    eslint rule 添加： `'linebreak-style': ['error', 'unix']`  
    prettier 添加： `endOfLine: 'lf'`
+
+4. 添加[transform-rumtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime/)解决部分语法不能运行的问题  
+   `npm install --save-dev @babel/plugin-transform-runtime`
+   `npm install --save @babel/runtime`
