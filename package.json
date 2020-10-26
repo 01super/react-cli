@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
     "test": "jest",
-    "lint": "eslint --ext .ts,.tsx,.js src",
+    "lint": "eslint  --config .eslintrc.js --ext .ts,.tsx,.js src",
     "lint-staged": "npm run lint-staged",
     "precommit": "eslint --ext .ts,.tsx,.js src",
     "lint:fix": "eslint --ext .ts,.tsx,.js src --fix"
@@ -82,6 +82,7 @@
     "*.{js,ts,tsx,css,less,json,md}": [
       "prettier --write",
       "git add"
-    ]
+    ],
+    "**/*.{js,ts,tsx}": "npm run lint"
   }
 }
