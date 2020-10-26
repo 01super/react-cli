@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
     "test": "jest",
     "lint": "eslint --ext .ts,.tsx,.js src",
     "lint-staged": "npm run lint-staged",
     "precommit": "eslint --ext .ts,.tsx,.js src",
-    "lint:fix": "eslint --ext .ts,.tsx,.js src --fix",
-    "build": "webpack --config config/webpack.prod.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js"
+    "lint:fix": "eslint --ext .ts,.tsx,.js src --fix"
   },
   "keywords": [],
   "author": "",
@@ -82,7 +82,6 @@
     "*.{js,ts,tsx,css,less,json,md}": [
       "prettier --write",
       "git add"
-    ],
-    "**/*.{js,ts,tsx}": "npm run lint"
+    ]
   }
 }
