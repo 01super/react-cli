@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar');
-
 const isDevMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
@@ -19,7 +18,10 @@ module.exports = {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            plugins: [isDevMode && require.resolve('react-refresh/babel')].filter(Boolean)
+          }
         }
       },
       {
@@ -99,7 +101,9 @@ module.exports = {
         vendors: {
           // 项目基本框架等
           chunks: 'all',
-          test: /(react|react-dom|react-router-dom)/,
+          // 将react-refresh\/runtime包含在其中是为了pmmmwh/react-refresh-webpack-plugin的热重载功能在bundle splitting下得以实现，详见链接：
+          // https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/TROUBLESHOOTING.md#component-not-updating-with-bundle-splitting-techniques
+          test: /(react|react-dom|react-router-dom|react-refresh\/runtime)/,
           priority: 100,
           name: 'vendors'
         },

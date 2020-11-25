@@ -2,6 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const developmentConfig = {
   mode: 'development',
@@ -21,7 +22,10 @@ const developmentConfig = {
     stats: 'errors-only', // 编译时的输出
     historyApiFallback: true // 解决刷新时路由找不到页面报404
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin()
+  ]
 };
 
 module.exports = merge(common, developmentConfig);
