@@ -16,7 +16,7 @@ const Mine: React.FC = () => {
       >
         {state}
       </h2>
-      <code>console.log(888)</code>
+      <code>console.log(8111111188)</code>
       <div>happy ending! 1</div>
     </div>
   );

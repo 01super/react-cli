@@ -173,12 +173,9 @@ module.exports = {
      * 禁止声明前使用的行为
      * 例外：函数
      */
-    'no-use-before-define': [
-      'error',
-      {
-        functions: false
-      }
-    ],
+    // note you must disable the base rule as it can report incorrect errors
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
     /** 禁止无用的构造函数，关闭以使用 ts 版的规则 */
     'no-useless-constructor': 'off',
     /** 禁止使用 var 标识符 */
