@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import HomeStore from '@/store/home';
+import MyFom from '@/pages/mine/MyFom';
 
 const Mine: React.FC = () => {
   const { title, setTitle } = HomeStore.useContainer();
@@ -18,6 +19,7 @@ const Mine: React.FC = () => {
       </h2>
       <code>console.log(8111111188)</code>
       <div>happy ending! 1</div>
+      <MyFom />
     </div>
   );
 };

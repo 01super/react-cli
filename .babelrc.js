@@ -1,4 +1,6 @@
 module.exports = {
+  //预设执行顺序从后往前
+  //plugins执行顺序从前往后
   presets: [
     '@babel/preset-env',
     '@babel/preset-react',
@@ -16,7 +18,11 @@ module.exports = {
         libraryDirectory: 'es'
       }
     ],
-    'transform-class-properties',
+    ['@babel/plugin-proposal-decorators', {
+      legacy: true,
+      decoratorsBeforeExport: true
+    }],
+    ['@babel/plugin-proposal-class-properties', { 'loose': true }],
     '@babel/plugin-transform-runtime'
   ]
 };
