@@ -11,6 +11,7 @@ const jsx = (
   </>
 );
 
+// 会调动React.createElement将jsx对象转换成js对象
 console.log('jsx', jsx);
 
 ReactDOM.render(jsx, document.getElementById('root'));
