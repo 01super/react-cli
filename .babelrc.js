@@ -18,11 +18,13 @@ module.exports = {
         libraryDirectory: 'es'
       }
     ],
-    ['@babel/plugin-proposal-decorators', {
-      legacy: true,
-      decoratorsBeforeExport: true
-    }],
-    ['@babel/plugin-proposal-class-properties', { 'loose': true }],
+    [
+      '@babel/plugin-proposal-decorators',
+      {
+        legacy: true
+      }
+    ],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
     '@babel/plugin-transform-runtime'
   ]
 };
