@@ -1,11 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const isDevMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: './src',
+  entry: './src', // 虽然webpack默认是此配置，但是不能删除，不然HMR会不工作
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../src') // 配置别名，方便引入
@@ -50,18 +49,20 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [
-                require('autoprefixer')({
-                  // 给css属性加上浏览器前缀
-                  overrideBrowserslist: [
-                    'last 10 Chrome versions',
-                    'last 5 Firefox versions',
-                    'Safari >= 6',
-                    'ie > 9',
-                    '> 2%'
-                  ]
-                })
-              ]
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')({
+                    // 给css属性加上浏览器前缀
+                    overrideBrowserslist: [
+                      'last 10 Chrome versions',
+                      'last 5 Firefox versions',
+                      'Safari >= 6',
+                      'ie > 9',
+                      '> 2%'
+                    ]
+                  })
+                ]
+              }
             }
           },
           {
@@ -85,7 +86,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin(),
     new WebpackBar()
   ],
   optimization: {
@@ -96,9 +96,9 @@ module.exports = {
       maxAsyncRequests: 5, // 按需加载时候最大的并行请求数
       maxInitialRequests: 4, // 最大初始化请求数，该属性决定入口最多分成的代码块数量，太小的值会使你无论怎么分割，都无法让入口的代码块变小。
       automaticNameDelimiter: '~', // 打包分割符
-      name: !isDevMode, // 值为 false 时，适合生产模式使用，webpack 会避免对 chunk 进行不必要的命名，以减小打包体积
+      // name: !isDevMode, // 值为 false 时，适合生产模式使用，webpack 会避免对 chunk 进行不必要的命名，以减小打包体积
       cacheGroups: {
-        vendors: {
+        defaultVendors: {
           // 项目基本框架等
           chunks: 'all',
           // 将react-refresh\/runtime包含在其中是为了pmmmwh/react-refresh-webpack-plugin的热重载功能在bundle splitting下得以实现，详见链接：

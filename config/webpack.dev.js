@@ -7,6 +7,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const developmentConfig = {
   mode: 'development',
   devtool: 'source-map',
+  target: 'web',
   output: {
     path: path.join(__dirname, '../public/dist'),
     filename: '[name].js',

@@ -3,6 +3,7 @@ import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 import GlobalStateProvider from '@/store/GlobalStateProvider';
 import DefaultLayout from '@/components/DefaultLayout';
 import routes from '@/router.config';
+import 'normalize.css';
 import './global.less';
 
 const App: React.FC = () => (
