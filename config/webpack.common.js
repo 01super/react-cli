@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const isDevMode = process.env.NODE_ENV === 'development';
 
@@ -85,7 +84,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin(),
     new WebpackBar()
   ],
   optimization: {
