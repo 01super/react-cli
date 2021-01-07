@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const isDevMode = process.env.NODE_ENV === 'development';
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 module.exports = {
   entry: './src', // 虽然webpack默认是此配置，但是不能删除，不然HMR会不工作
@@ -86,6 +87,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
+    new AntdDayjsWebpackPlugin(),
     new WebpackBar()
   ],
   optimization: {

@@ -1892,6 +1892,11 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+antd-dayjs-webpack-plugin@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/antd-dayjs-webpack-plugin/-/antd-dayjs-webpack-plugin-1.0.4.tgz#017c3681fdd7fede38e3fa5b7ee9e04bf62cfb3a"
+  integrity sha512-yraPusfk1eO3JN6DZ6itH2woDSRPQoxd0sDv4tnr2NoGRz9u2iBJsUHjVnm2mE6JqjN0a/eGUPB+b1jAeZ+GEg==
+
 antd@^4.9.4:
   version "4.9.4"
   resolved "https://registry.npm.taobao.org/antd/download/antd-4.9.4.tgz?cache=0&sync_timestamp=1608097036094&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fantd%2Fdownload%2Fantd-4.9.4.tgz#129092bc4a67c774145cb2450e4046d27a1acbb1"
@@ -3072,6 +3077,11 @@ date-fns@^2.15.0:
   version "2.16.1"
   resolved "https://registry.npm.taobao.org/date-fns/download/date-fns-2.16.1.tgz?cache=0&sync_timestamp=1598884316693&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdate-fns%2Fdownload%2Fdate-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
   integrity sha1-BXdXksPzMx2oEq8lPhqTWFHTg0s=
+
+dayjs@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.10.2.tgz#8f3a424ceb944a8193506804b0045a773d2d0672"
+  integrity sha512-h/YtykNNTR8Qgtd1Fxl5J1/SFP1b7SOk/M1P+Re+bCdFMV0IMkuKNgHPN7rlvvuhfw24w0LX78iYKt4YmePJNQ==
 
 dayjs@^1.8.30:
   version "1.9.7"
