@@ -44,15 +44,13 @@ function formWrapper(Com) {
 
     render() {
       return (
-        <div>
-          <Com
-            {...this.props}
-            getFieldsValue={this.getFieldsValue}
-            getFieldDecorator={this.getFieldDecorator}
-            getFieldValue={this.getFieldValue}
-            validateFields={this.validateFields}
-          />
-        </div>
+        <Com
+          {...this.props}
+          getFieldsValue={this.getFieldsValue}
+          getFieldDecorator={this.getFieldDecorator}
+          getFieldValue={this.getFieldValue}
+          validateFields={this.validateFields}
+        />
       );
     }
   };

@@ -1,8 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
-const isDevMode = process.env.NODE_ENV === 'development';
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+const isDevMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: './src', // 虽然webpack默认是此配置，但是不能删除，不然HMR会不工作
@@ -39,7 +42,7 @@ module.exports = {
         test: /\.(le|c)ss$/,
         exclude: /node_modules/, // 排除node_modules文件夹下面的样式文件
         use: [
-          'style-loader',
+          isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -88,10 +91,15 @@ module.exports = {
       template: 'src/index.html'
     }),
     new AntdDayjsWebpackPlugin(),
-    new WebpackBar()
+    new WebpackBar(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
+    })
   ],
   optimization: {
     runtimeChunk: 'single',
+    minimizer: [new CssMinimizerPlugin()],
     splitChunks: {
       chunks: 'all',
       minSize: 30000,

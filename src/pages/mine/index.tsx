@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import HomeStore from '@/store/home';
 import MyFom from '@/pages/mine/MyFom';
+import style from './style.less';
 
 const Mine: React.FC = () => {
   const { title, setTitle } = HomeStore.useContainer();
   const [state, setState] = useState(0);
   return (
-    <div onClick={() => setTitle('123123123')}>
+    <div className={style.name} onClick={() => setTitle('123123123')}>
       {title}
       <h1>hello world</h1>
       <h2
