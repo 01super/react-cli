@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build-common": "webpack --config config/webpack.prod.js",
     "dll": "webpack --config config/webpack.dll.js",
-    "build": "npm run build && npm run dll",
+    "build": "npm run build-common && npm run dll",
     "test": "jest",
     "lint": "eslint  --config .eslintrc.js --ext .ts,.tsx,.js src",
     "lint-staged": "npm run lint-staged",

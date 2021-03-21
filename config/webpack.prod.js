@@ -14,7 +14,9 @@ const productionConfig = {
   plugins: [new CleanWebpackPlugin()],
   optimization: {
     runtimeChunk: 'single',
-    minimizer: [new CssMinimizerPlugin()],
+    // '...' can be used in optimization.minimizer to access the defaults.
+    // 如果不使用 ... ，Allows you to override the default minimizer by providing a different one or more customized TerserPlugin instances.
+    minimizer: [new CssMinimizerPlugin(), '...'],
     splitChunks: {
       chunks: 'all',
       minSize: 30000,
