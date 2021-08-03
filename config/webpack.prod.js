@@ -25,16 +25,15 @@ const productionConfig = {
       automaticNameDelimiter: '~', // 打包分割符
       // name: !isDevMode, // 值为 false 时，适合生产模式使用，webpack 会避免对 chunk 进行不必要的命名，以减小打包体积
       cacheGroups: {
-        // ------- 使用了 Dll 故此处不需要了 ------
-        // defaultVendors: {
-        //   // 项目基本框架等
-        //   chunks: 'all',
-        //   // 将react-refresh\/runtime包含在其中是为了pmmmwh/react-refresh-webpack-plugin的热重载功能在bundle splitting下得以实现，详见链接：
-        //   // https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/TROUBLESHOOTING.md#component-not-updating-with-bundle-splitting-techniques
-        //   test: /(react|react-dom|react-router-dom)/,
-        //   priority: 100,
-        //   name: 'vendors'
-        // },
+        defaultVendors: {
+          // 项目基本框架等
+          chunks: 'all',
+          // 将react-refresh\/runtime包含在其中是为了pmmmwh/react-refresh-webpack-plugin的热重载功能在bundle splitting下得以实现，详见链接：
+          // https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/TROUBLESHOOTING.md#component-not-updating-with-bundle-splitting-techniques
+          test: /(react|react-dom|react-router-dom)/,
+          priority: 100,
+          name: 'vendors'
+        },
         'async-commons': {
           // 异步加载公共包、组件等
           chunks: 'async',

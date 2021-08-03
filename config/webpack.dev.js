@@ -4,6 +4,7 @@ const common = require('./webpack.common');
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { DllReferencePlugin } = require('webpack');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const developmentConfig = {
   mode: 'development',
@@ -15,12 +16,11 @@ const developmentConfig = {
     publicPath: '/'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
     compress: true, // 启动 gzip 压缩
     progress: true, // 显示打包的进度条
     // ell the server where to serve content from. This is only necessary if you want to serve static files
     // 使用 Dll 动态链接库需要配置，不然 index.html中找不到该 dll 文件地址
-    contentBase: path.resolve(__dirname, '../dist'), 
+    contentBase: path.resolve(__dirname, '../dll'),
     open: 'http://localhost:8080',
     host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
     port: 8080,
@@ -35,6 +35,9 @@ const developmentConfig = {
     }),
     new DllReferencePlugin({
       manifest: require(path.resolve(__dirname, '../dist/react.manifest.json'))
+    }),
+    new AddAssetHtmlPlugin({
+      filepath: path.join(__dirname, '..', 'dll/react.dll.js')
     })
   ]
 };

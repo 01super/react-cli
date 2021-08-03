@@ -1,0 +1,88 @@
+{
+  "name": "_dll_react",
+  "content": {
+    "./node_modules/.pnpm/registry.nlark.com+react-dom@17.0.2_react@17.0.2/node_modules/react-dom/index.js": {
+      "id": "./node_modules/.pnpm/registry.nlark.com+react-dom@17.0.2_react@17.0.2/node_modules/react-dom/index.js",
+      "buildMeta": {
+        "exportsType": "dynamic",
+        "defaultObject": "redirect"
+      },
+      "exports": [
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
+        "createPortal",
+        "findDOMNode",
+        "flushSync",
+        "hydrate",
+        "render",
+        "unmountComponentAtNode",
+        "unstable_batchedUpdates",
+        "unstable_createPortal",
+        "unstable_renderSubtreeIntoContainer",
+        "version"
+      ]
+    },
+    "./node_modules/.pnpm/registry.nlark.com+react-router-dom@5.2.0_react@17.0.2/node_modules/react-router-dom/esm/react-router-dom.js": {
+      "id": "./node_modules/.pnpm/registry.nlark.com+react-router-dom@5.2.0_react@17.0.2/node_modules/react-router-dom/esm/react-router-dom.js",
+      "buildMeta": {
+        "exportsType": "namespace"
+      },
+      "exports": [
+        "BrowserRouter",
+        "HashRouter",
+        "Link",
+        "MemoryRouter",
+        "NavLink",
+        "Prompt",
+        "Redirect",
+        "Route",
+        "Router",
+        "StaticRouter",
+        "Switch",
+        "generatePath",
+        "matchPath",
+        "useHistory",
+        "useLocation",
+        "useParams",
+        "useRouteMatch",
+        "withRouter"
+      ]
+    },
+    "./node_modules/.pnpm/registry.nlark.com+react@17.0.2/node_modules/react/index.js": {
+      "id": "./node_modules/.pnpm/registry.nlark.com+react@17.0.2/node_modules/react/index.js",
+      "buildMeta": {
+        "exportsType": "dynamic",
+        "defaultObject": "redirect"
+      },
+      "exports": [
+        "Children",
+        "Component",
+        "Fragment",
+        "Profiler",
+        "PureComponent",
+        "StrictMode",
+        "Suspense",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
+        "cloneElement",
+        "createContext",
+        "createElement",
+        "createFactory",
+        "createRef",
+        "forwardRef",
+        "isValidElement",
+        "lazy",
+        "memo",
+        "useCallback",
+        "useContext",
+        "useDebugValue",
+        "useEffect",
+        "useImperativeHandle",
+        "useLayoutEffect",
+        "useMemo",
+        "useReducer",
+        "useRef",
+        "useState",
+        "version"
+      ]
+    }
+  }
+}
