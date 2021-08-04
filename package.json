@@ -13,7 +13,8 @@
     "lint": "eslint  --config .eslintrc.js --ext .ts,.tsx,.js src",
     "lint-staged": "npm run lint-staged",
     "precommit": "eslint --ext .ts,.tsx,.js src",
-    "lint:fix": "eslint --ext .ts,.tsx,.js src --fix"
+    "lint:fix": "eslint --ext .ts,.tsx,.js src --fix",
+    "pretty": "prettier --write ."
   },
   "keywords": [],
   "author": "",
