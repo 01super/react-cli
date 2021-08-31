@@ -1,5 +1,14 @@
 # 从零搭建基于 webpack5 + babel7 + typeScrip 的 React 开发环境
 
+1. 有的编译器要使用 .editconfig 配置需要下载插件，如 vscode 需要安装 EditorConfig for VS Code 插件。具体参见官网 https://editorconfig.org/
+
+2. typescript 找不到定义文件：检查 tsconfig.json 中的 compilerOptions.typeRoots，设置了他会覆盖默认的设置，需要手动加上其它的类型定义文件夹
+
+3. 此项目配置了换行符统一为 lf，使用时注意将编译器的换行符设为默认 lf，vscode 中搜索 eol 便可找到
+
+4. vscode调试文件参考：https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests
+
+
 **功能要点：**
 
 - 配置基础的 webpack 功能
