@@ -20,9 +20,9 @@ const developmentConfig = {
     // ell the server where to serve content from. This is only necessary if you want to serve static files
     // 使用 Dll 动态链接库需要配置，不然 index.html中找不到该 dll 文件地址
     // contentBase: path.resolve(__dirname, '../dll'),
-    open: 'http://localhost:8080',
+    open: 'http://localhost:666',
     host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
-    port: 8080,
+    port: 666,
     hot: true,
     historyApiFallback: true, // 解决刷新时路由找不到页面报404
     devMiddleware: {
