@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { UserOutlined, PictureOutlined, UsergroupAddOutlined } from '@ant-design/icons';
+import { UsergroupAddOutlined } from '@ant-design/icons';
 import { BreadcrumbsRoute } from '@/utils/useBreadcrumb';
 
 const home = lazy(() => import('@/pages/home'));

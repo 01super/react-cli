@@ -13,7 +13,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   function (config) {
     // 在请求发出之前进行一些操作
-    // config.headers.wangsheng = 'headers';
+    // config.headers.xxx = 'headers';
     return config;
   },
   function (err) {
@@ -65,7 +65,7 @@ export function get<T>(
   params?: { [key: string]: any },
   config?: AxiosRequestConfig
 ): Promise<T> {
-  return instance.get(url, { params, ...config }).then();
+  return instance.get(url, { params, ...config });
 }
 
 export function post<T>(
@@ -73,7 +73,7 @@ export function post<T>(
   data?: { [key: string]: any },
   config?: AxiosRequestConfig
 ): Promise<T> {
-  return instance.post(url, data, config).then();
+  return instance.post(url, data, config);
 }
 
 export function det<T>(
@@ -81,7 +81,7 @@ export function det<T>(
   data?: { [key: string]: any },
   config?: AxiosRequestConfig
 ): Promise<T> {
-  return instance.delete(url, { data, ...config }).then();
+  return instance.delete(url, { data, ...config });
 }
 
 export function put<T>(
@@ -89,5 +89,5 @@ export function put<T>(
   data?: { [key: string]: any },
   config?: AxiosRequestConfig
 ): Promise<T> {
-  return instance.put(url, data, { ...config }).then();
+  return instance.put(url, data, { ...config });
 }

@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import HomeStore from '@/store/home';
-import MyFom from '@/pages/mine/MyFom';
 import style from './style.less';
 
 const Mine: React.FC = () => {
@@ -31,7 +30,6 @@ const Mine: React.FC = () => {
       <input type="text" value={title} onChange={(v) => setTitle(v.target.value)} />
       <h1 ref={measuredRef}>{title}</h1>
       <h2>The above header is {Math.round(height)}px tall</h2>
-      <MyFom />
     </div>
   );
 };

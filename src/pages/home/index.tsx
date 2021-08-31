@@ -1,5 +1,4 @@
 import React from 'react';
-import Mime from '@/pages/mine';
 
 const Home: React.FC = () => {
   const [title, setTitle] = React.useState(99);
@@ -17,7 +16,6 @@ const Home: React.FC = () => {
         <li>2</li>
         <li>3</li>
       </ul>
-      <Mime />
     </section>
   );
 };
