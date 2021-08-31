@@ -1,33 +1,40 @@
-import { lazy, ReactNode } from 'react';
-import Home from '@/pages/home';
+import { lazy } from 'react';
+import { UserOutlined, PictureOutlined, UsergroupAddOutlined } from '@ant-design/icons';
+import { BreadcrumbsRoute } from '@/utils/useBreadcrumb';
 
-const Mine = lazy(() => import('@/pages/mine'));
+const home = lazy(() => import('@/pages/home'));
+const mine = lazy(() => import('@/pages/mine'));
 
-export interface RouteType {
-  path?: string;
+export interface RouteType extends BreadcrumbsRoute {
   exact?: boolean;
   component?: any;
-  title?: string;
-  icon?: ReactNode;
-  subRoutes?: RouteType[];
+  icon?: any;
+  name?: string;
+  menu?: boolean; // 不需要显示在菜单中，则设为 false
+  routes?: RouteType[];
 }
 
 const routes: RouteType[] = [
   {
-    path: '/home',
+    path: '/',
     exact: true,
-    component: Home,
-    title: 'Home'
-  },
-  {
-    exact: true,
-    title: 'Sub Page',
-    subRoutes: [
+    breadcrumb: '主页',
+    name: '主页',
+    icon: UsergroupAddOutlined,
+    routes: [
+      {
+        path: '/home',
+        exact: true,
+        component: home,
+        breadcrumb: 'home',
+        name: 'home'
+      },
       {
         path: '/mine',
         exact: true,
-        component: Mine,
-        title: 'Mine'
+        component: mine,
+        breadcrumb: 'mine',
+        name: 'mine'
       }
     ]
   }
