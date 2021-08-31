@@ -2,7 +2,17 @@ module.exports = {
   //预设执行顺序从后往前
   //plugins执行顺序从前往后
   presets: [
-    '@babel/preset-env',
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'entry',
+        corejs: {
+          version: 3,
+          proposals: true
+        },
+        modules: false
+      }
+    ],
     '@babel/preset-react',
     '@babel/preset-typescript'
     // {
@@ -24,7 +34,6 @@ module.exports = {
         legacy: true
       }
     ],
-    ['@babel/plugin-proposal-class-properties', { loose: false }],
-    '@babel/plugin-transform-runtime'
+    ['@babel/plugin-proposal-class-properties', { loose: false }]
   ]
 };
