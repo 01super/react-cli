@@ -34,7 +34,7 @@ const developmentConfig = {
       overlay: false
     }),
     new DllReferencePlugin({
-      manifest: require(path.resolve(__dirname, '../dist/react.manifest.json'))
+      manifest: require(path.resolve(__dirname, '../dll/react.manifest.json'))
     }),
     new AddAssetHtmlPlugin({
       filepath: path.join(__dirname, '..', 'dll/react.dll.js')
