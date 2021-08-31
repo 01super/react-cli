@@ -1,4 +1,4 @@
-# 从零搭建基于 Webpack4+Babel7+TypeScrip 的 React 开发环境
+# 从零搭建基于 webpack5 + babel7 + typeScrip 的 React 开发环境
 
 **功能要点：**
 

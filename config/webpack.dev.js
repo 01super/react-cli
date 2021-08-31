@@ -16,17 +16,46 @@ const developmentConfig = {
     publicPath: '/'
   },
   devServer: {
-    compress: true, // 启动 gzip 压缩
-    progress: true, // 显示打包的进度条
+    // progress: true, // 显示打包的进度条
     // ell the server where to serve content from. This is only necessary if you want to serve static files
     // 使用 Dll 动态链接库需要配置，不然 index.html中找不到该 dll 文件地址
-    contentBase: path.resolve(__dirname, '../dll'),
+    // contentBase: path.resolve(__dirname, '../dll'),
     open: 'http://localhost:8080',
     host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
     port: 8080,
     hot: true,
-    stats: 'errors-only', // 编译时的输出
-    historyApiFallback: true // 解决刷新时路由找不到页面报404
+    historyApiFallback: true, // 解决刷新时路由找不到页面报404
+    devMiddleware: {
+      // index: true,
+      // mimeTypes: {"text/html": ["phtml"]},
+      // publicPath: "/publicPathForDevServe",
+      // serverSideRender: true,
+    },
+    client: {
+      // Can be used only for `errors`/`warnings`
+      logging: 'info',
+      //
+      // overlay: {
+      //   errors: true,
+      //   warnings: true,
+      // }
+      overlay: false,
+      progress: true
+    },
+    static: {
+      // directory: path.resolve(__dirname, "static"),
+      // staticOptions: {},
+      // Don't be confused with `devMiddleware.publicPath`, it is `publicPath` for static directory
+      // Can be:
+      // publicPath: ['/static-public-path-one/', '/static-public-path-two/'],
+      // publicPath: "/static-public-path/",
+      // Can be:
+      // serveIndex: {} (options for the `serveIndex` option you can find https://github.com/expressjs/serve-index)
+      // serveIndex: true,
+      // Can be:
+      // watch: {} (options for the `watch` option you can find https://github.com/paulmillr/chokidar)
+      // watch: true,
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
