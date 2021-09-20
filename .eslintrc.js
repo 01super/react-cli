@@ -7,13 +7,12 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    'airbnb-typescript',
     'airbnb/hooks',
-    'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:react/jsx-runtime',
     'prettier',
-    'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/react'
   ],
   parser: '@typescript-eslint/parser', //ESLint的解析器，用于解析typescript，从而检查和规范Typescript代码
   // settings: {

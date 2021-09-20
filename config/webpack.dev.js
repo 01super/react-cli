@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { DllReferencePlugin } = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
 const developmentConfig = {
   mode: 'development',
@@ -59,6 +60,8 @@ const developmentConfig = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    // Cleans your terminal output during development to only show the latest build information.
+    new CleanTerminalPlugin(),
     new ReactRefreshWebpackPlugin({
       overlay: false
     }),
