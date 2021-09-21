@@ -11,6 +11,9 @@ const developmentConfig = {
   mode: 'development',
   devtool: 'source-map',
   target: 'web',
+  cache: {
+    type: 'filesystem' // 使用文件缓存
+  },
   output: {
     path: path.join(__dirname, '../public/dist'),
     filename: '[name].js',
@@ -18,13 +21,9 @@ const developmentConfig = {
   },
   devServer: {
     // progress: true, // 显示打包的进度条
-    // ell the server where to serve content from. This is only necessary if you want to serve static files
-    // 使用 Dll 动态链接库需要配置，不然 index.html中找不到该 dll 文件地址
-    // contentBase: path.resolve(__dirname, '../dll'),
     open: 'http://localhost:666',
     host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
     port: 666,
-    hot: true,
     historyApiFallback: true, // 解决刷新时路由找不到页面报404
     devMiddleware: {
       // index: true,

@@ -22,7 +22,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [isDevMode && require.resolve('react-refresh/babel')].filter(Boolean)
+            plugins: [isDevMode && require.resolve('react-refresh/babel')].filter(Boolean),
+            cacheDirectory: true
           }
         }
       },
