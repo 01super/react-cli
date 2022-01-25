@@ -39,8 +39,8 @@ const developmentConfig = {
       //   errors: true,
       //   warnings: true,
       // }
-      overlay: false,
-      progress: true
+      overlay: false
+      // progress: true
     },
     static: {
       // directory: path.resolve(__dirname, "static"),

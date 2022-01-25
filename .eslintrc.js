@@ -31,5 +31,8 @@ module.exports = {
       jsx: true //指定ESLint可以解析JSX语法
     }
   },
-  plugins: ['react', '@typescript-eslint', 'prettier']
+  plugins: ['react', '@typescript-eslint', 'prettier'],
+  rules: {
+    'import/extensions': 'off'
+  }
 };

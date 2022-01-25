@@ -46,7 +46,10 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true, // 开启css modules
+              modules: {
+                auto: (resourcePath) => !/global.(css|less)$/i.test(resourcePath),
+                localIdentName: isDevMode ? '[local]__[hash:base64]' : '[hash:base64]'
+              }, // 开启css modules
               importLoaders: 2 // css-loader前的loader数量
             }
           },
@@ -96,5 +99,14 @@ module.exports = {
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css'
     })
+    /** copy-webpack-plugin */
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, '../public'),
+    //       to: path.resolve(__dirname, '../dist')
+    //     }
+    //   ]
+    // })
   ]
 };

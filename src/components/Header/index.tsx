@@ -12,7 +12,7 @@ const Header: FC = () => {
   const menu = (
     <Menu>
       <Menu.Item onClick={logout}>
-        <span>退出登录</span>
+        <span>退出登录12</span>
       </Menu.Item>
     </Menu>
   );
@@ -30,7 +30,7 @@ const Header: FC = () => {
         />
         <h1 className={style.logoTitle}>管理后台</h1>
       </div>
-      {userInfo.name && (
+      {userInfo?.name && (
         <Dropdown className={`fr ${style.content}`} overlay={menu}>
           <span className={style.user}>
             <span className="avatar">{userInfo.name}</span>

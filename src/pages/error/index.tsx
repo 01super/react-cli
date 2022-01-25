@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Button, Result } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ErrorPage: FC<{ status: number }> = ({ status }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleBack = () => {
-    history.push('/user/user');
+    navigate('/user/user');
   };
 
   const backBtn = (
