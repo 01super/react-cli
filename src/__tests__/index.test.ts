@@ -1,7 +1,7 @@
 function fn() {
-  return 1;
+    return 1;
 }
 
 test('the best flavor is grapefruit', () => {
-  expect(fn()).toBe(1);
+    expect(fn()).toBe(1);
 });

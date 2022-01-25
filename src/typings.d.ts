@@ -6,7 +6,7 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 
-declare module '*.less';
-interface P {
-  name: number;
+declare module '*.less' {
+    const classes: { [key: string]: string };
+    export default classes;
 }
