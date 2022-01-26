@@ -11,9 +11,9 @@
         "test": "jest",
         "lint": "eslint  --config .eslintrc.js --ext .ts,.tsx,.js src",
         "lint-staged": "npm run lint-staged",
-        "precommit": "eslint --ext .ts,.tsx,.js src",
         "lint:fix": "eslint --ext .ts,.tsx,.js src --fix",
-        "pretty": "prettier --write ."
+        "pretty": "prettier --write .",
+        "prepare": "husky install"
     },
     "keywords": [],
     "author": "",
@@ -45,11 +45,11 @@
         "cross-env": "^7.0.3",
         "css-loader": "^6.5.1",
         "css-minimizer-webpack-plugin": "^3.3.1",
-        "eslint": "^8.6.0",
+        "eslint": "^8.2.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^16.1.0",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.28.0",
@@ -86,17 +86,11 @@
         "react-router-dom": "^6.2.1",
         "unstated-next": "^1.1.0"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "lint-staged": {
         "*.{js,ts,tsx,css,less,json,md}": [
-            "prettier --write",
-            "git add"
+            "prettier --write"
         ],
-        "**/*.{js,ts,tsx}": "npm run lint"
+        "*.{ts,tsx,js}": "eslint --cache --fix"
     },
     "browserslist": [
         "last 10 Chrome versions",

@@ -1,21 +1,16 @@
 import React, { FC } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu, Dropdown, Layout } from 'antd';
 import useCommonState from '@/store/commom';
 import style from './style.less';
 
 const Header: FC = () => {
-    const navigate = useNavigate();
-
     const { userInfo } = useCommonState.useContainer();
-    const logout = () => {
-        navigate('/login');
-    };
 
     const menu = (
         <Menu>
-            <Menu.Item onClick={logout}>
-                <span>退出登录12</span>
+            <Menu.Item>
+                <Link to="/login">退出登录</Link>nage
             </Menu.Item>
         </Menu>
     );

@@ -5,22 +5,14 @@ module.exports = {
         node: true,
         es6: true, // 额外支持新的 ES6 全局变量, 如Set和Map
     },
-    extends: [
-        'airbnb',
-        'airbnb-typescript',
-        'airbnb/hooks',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:react/jsx-runtime',
-        'prettier',
-    ],
-    parser: '@typescript-eslint/parser', //ESLint的解析器，用于解析typescript，从而检查和规范Typescript代码
-    // settings: {
-    //   react: {
-    //     pragma: 'React',
-    //     version: 'detect'
-    //   }
-    // },
+    extends: ['airbnb', 'airbnb-typescript', 'airbnb/hooks', 'prettier'],
+    parser: '@typescript-eslint/parser', // ESLint的解析器，用于解析typescript，从而检查和规范Typescript代码
+    settings: {
+        react: {
+            pragma: 'React',
+            version: 'detect',
+        },
+    },
     parserOptions: {
         project: 'tsconfig.json',
         sourceType: 'module',
@@ -35,5 +27,6 @@ module.exports = {
     rules: {
         'import/extensions': 'off',
         'react/function-component-definition': 'off',
+        // 'no-unused-vars': ['error', { varsIgnorePattern: 'React' }],
     },
 };
