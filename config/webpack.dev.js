@@ -3,8 +3,8 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const { DllReferencePlugin } = require('webpack');
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+// const { DllReferencePlugin } = require('webpack');
+// const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
 const developmentConfig = {
@@ -21,9 +21,9 @@ const developmentConfig = {
     },
     devServer: {
         // progress: true, // 显示打包的进度条
-        open: 'http://localhost:666',
+        open: 'http://localhost:10024',
         host: '0.0.0.0', // 这样配置可以使其它设备在同一局域网中也能够访问到
-        port: 666,
+        port: 10024,
         historyApiFallback: true, // 解决刷新时路由找不到页面报404
         devMiddleware: {
             // index: true,
@@ -64,12 +64,12 @@ const developmentConfig = {
         new ReactRefreshWebpackPlugin({
             overlay: false,
         }),
-        new DllReferencePlugin({
-            manifest: require(path.resolve(__dirname, '../dll/react.manifest.json')),
-        }),
-        new AddAssetHtmlPlugin({
-            filepath: path.join(__dirname, '..', 'dll/react.dll.js'),
-        }),
+        // new DllReferencePlugin({
+        //     manifest: require(path.resolve(__dirname, '../dll/react.manifest.json')),
+        // }),
+        // new AddAssetHtmlPlugin({
+        //     filepath: path.join(__dirname, '..', 'dll/react.dll.js'),
+        // }),
     ],
 };
 

@@ -7,7 +7,6 @@
         "start": "npm run dev",
         "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
         "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-        "dll": "webpack --config config/webpack.dll.js",
         "test": "jest",
         "lint": "eslint  --config .eslintrc.js --ext .ts,.tsx,.js src",
         "lint-staged": "npm run lint-staged",
@@ -76,8 +75,9 @@
         "webpackbar": "^5.0.2"
     },
     "dependencies": {
+        "@ant-design/icons": "^4.7.0",
         "ahooks": "^3.1.8",
-        "antd": "^4.18.5",
+        "antd": "^4.19.1",
         "axios": "^0.25.0",
         "dayjs": "^1.10.7",
         "normalize.css": "^8.0.1",

@@ -21,20 +21,18 @@ const routes: RouteType[] = [
         name: '主页',
         routes: [
             {
-                path: '/home',
+                path: '/',
                 exact: true,
                 component: home,
                 breadcrumb: 'home',
                 name: 'home',
-                routes: [
-                    {
-                        path: '/mine',
-                        exact: true,
-                        component: mine,
-                        breadcrumb: 'mine',
-                        name: 'mine',
-                    },
-                ],
+            },
+            {
+                path: '/mine',
+                exact: true,
+                component: mine,
+                breadcrumb: 'mine',
+                name: 'mine',
             },
         ],
     },
