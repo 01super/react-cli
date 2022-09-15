@@ -1,26 +1,48 @@
-:global {
-    body {
-        min-width: 1100px;
-    }
+body {
+  min-width: 1100px;
+}
 
-    /*去掉列表默认排列*/
-    ul,
-    ol,
-    li {
-        list-style: none;
-    }
+/*去掉列表默认排列*/
+ul,
+ol,
+li {
+  list-style: none;
+}
 
-    /*清除浮动破坏带来的塌陷问题*/
-    /*清除浮动的兼容IE*/
-    .clearfix {
-        zoom: 1;
-    }
+/*清除浮动破坏带来的塌陷问题*/
+/*清除浮动的兼容IE*/
+.clearfix {
+  zoom: 1;
+}
 
-    .clearfix:after {
-        display: block;
-        clear: both;
-        content: '';
-        visibility: hidden;
-        height: 0;
-    }
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: '';
+  visibility: hidden;
+  height: 0;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translate(-50px, 0);
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: opacity 250ms ease-out, transform 300ms ease;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translate(0, 0);
+  z-index: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transform: translate(50px, 0px);
+  transition: opacity 250ms ease-out, transform 300ms ease;
 }

@@ -1,35 +1,93 @@
-import React, { lazy, memo } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import React, { lazy, memo, useEffect, useState } from 'react';
+import { Routes, Route, useLocation, useNavigate, Link } from 'react-router-dom';
 import GlobalStateProvider from '@/store/GlobalStateProvider';
-import Layout from '@/components/Layout';
-import routes, { RouteType } from '@/router.config';
+import DefaultLayout from '@/components/DefaultLayout';
 import Login from '@/pages/login';
 import Home from '@/pages/home';
+import Mine from '@/pages/mine';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import logo from '@/assets/img2.png';
+import { Layout, Menu } from 'antd';
+import routes from '@/router.config';
+
+const { Sider, Content } = Layout;
 
 const NotFound = lazy(() => import('@/pages/error'));
 
-// TODO 判断权限，没有权限跳转 403
-const renderRoute = (r: RouteType[]): React.ReactNode =>
-    r.map(({ routes: rt, component: Component, path }) =>
-        Component ? (
-            <Route path={path} key={path} element={<Component />} />
-        ) : (
-            rt && renderRoute(rt)
-        ),
-    );
+const App: React.FC = () => {
+    const location = useLocation();
+    console.log(location.key);
+    const [menuKey, setMenuKey] = useState('/maker');
+    const [openKey, setOpenKey] = useState<string[]>([]);
+    // 刷新后定位菜单
+    useEffect(() => {
+        const data = location.pathname;
+        if (data) {
+            setMenuKey(data);
+        }
+    }, []);
 
-const App: React.FC = () => (
-    <GlobalStateProvider>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Layout />}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="*" element={<NotFound />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    </GlobalStateProvider>
-);
+    const handleSelect = (e: any) => {
+        setMenuKey(e.selectedKeys[0]);
+        navigate(e.item.props.path);
+    };
+
+    const handleOpenChange = (keys: any) => {
+        setOpenKey(keys as string[]);
+    };
+
+    const navigate = useNavigate();
+    return (
+        <GlobalStateProvider>
+            <Layout
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                }}
+            >
+                <Sider
+                    width={256}
+                    style={{
+                        overflow: 'auto',
+                        height: '100vh',
+                        left: 0,
+                        background: 'white',
+                        zIndex: 99,
+                    }}
+                >
+                    <div style={{ height: 80, padding: 0 }}>
+                        <Link to="/">
+                            <img style={{ width: '100%', height: '100%' }} src={logo} alt="logo" />
+                        </Link>
+                    </div>
+                    <Menu
+                        items={routes}
+                        mode="inline"
+                        onSelect={handleSelect}
+                        selectedKeys={[menuKey]}
+                        openKeys={openKey}
+                        onOpenChange={handleOpenChange}
+                    />
+                </Sider>
+                <Content style={{ flex: 1 }}>
+                    <TransitionGroup>
+                        <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                            <Routes location={location}>
+                                <Route path="/" element={<DefaultLayout />}>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="/mine" element={<Mine />} />
+                                    <Route path="*" element={<NotFound />} />
+                                </Route>
+                            </Routes>
+                        </CSSTransition>
+                    </TransitionGroup>
+                    {/*<Routes>*/}
+                    {/*    <Route path="/login" element={<Login />} />*/}
+                    {/*</Routes>*/}
+                </Content>
+            </Layout>
+        </GlobalStateProvider>
+    );
+};
 
 export default memo(App);

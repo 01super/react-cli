@@ -10,7 +10,7 @@ const Header: FC = () => {
     const menu = (
         <Menu>
             <Menu.Item>
-                <Link to="/login">退出登录</Link>nage
+                <Link to="/login">退出登录</Link>
             </Menu.Item>
         </Menu>
     );
