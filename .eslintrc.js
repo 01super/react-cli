@@ -5,7 +5,13 @@ module.exports = {
         node: true,
         es6: true, // 额外支持新的 ES6 全局变量, 如Set和Map
     },
-    extends: ['airbnb', 'airbnb-typescript', 'airbnb/hooks', 'prettier'],
+    extends: [
+        'airbnb',
+        'airbnb-typescript',
+        'airbnb/hooks',
+        'prettier',
+        'plugin:react/jsx-runtime',
+    ],
     parser: '@typescript-eslint/parser', // ESLint的解析器，用于解析typescript，从而检查和规范Typescript代码
     settings: {
         react: {
