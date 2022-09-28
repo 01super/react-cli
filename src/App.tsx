@@ -1,22 +1,22 @@
-import React, { lazy, memo, useEffect, useState } from 'react';
+import { FC, lazy, memo, useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigate, Link } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import GlobalStateProvider from '@/store/GlobalStateProvider';
 import DefaultLayout from '@/components/DefaultLayout';
-import Login from '@/pages/login';
+// import Login from '@/pages/login';
 import Home from '@/pages/home';
 import Mine from '@/pages/mine';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import LargeUpload from '@/pages/largeUpload';
 import logo from '@/assets/img2.png';
-import { Layout, Menu } from 'antd';
 import routes from '@/router.config';
 
 const { Sider, Content } = Layout;
 
 const NotFound = lazy(() => import('@/pages/error'));
 
-const App: React.FC = () => {
+const App: FC = () => {
     const location = useLocation();
-    console.log(location.key);
     const [menuKey, setMenuKey] = useState('/maker');
     const [openKey, setOpenKey] = useState<string[]>([]);
     // 刷新后定位菜单
@@ -76,6 +76,7 @@ const App: React.FC = () => {
                                 <Route path="/" element={<DefaultLayout />}>
                                     <Route path="/" element={<Home />} />
                                     <Route path="/mine" element={<Mine />} />
+                                    <Route path="/Large-upload" element={<LargeUpload />} />
                                     <Route path="*" element={<NotFound />} />
                                 </Route>
                             </Routes>

@@ -3,6 +3,7 @@ import { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 const home = lazy(() => import('@/pages/home'));
 const mine = lazy(() => import('@/pages/mine'));
+const largeUpload = lazy(() => import('@/pages/largeUpload'));
 
 export type RouteType = ItemType & {
     component?: any;
@@ -29,6 +30,13 @@ const routes: RouteType[] = [
                 component: mine,
                 key: 'mine',
                 label: 'mine',
+            },
+            {
+                path: '/large-upload',
+                exact: true,
+                component: largeUpload,
+                key: 'largeUpload',
+                label: 'largeUpload',
             },
         ],
     },
