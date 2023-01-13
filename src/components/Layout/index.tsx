@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { FC, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'antd';
 import Header from '../Header';
@@ -8,7 +8,7 @@ import style from './style.less';
 
 const { Content, Sider } = Layout;
 
-const DefaultLayout: React.FC = () => (
+const DefaultLayout: FC = () => (
     // 刷新后定位菜单
     <Layout className={style.layout}>
         <Header />

@@ -17,6 +17,7 @@ const NotFound = lazy(() => import('@/pages/error'));
 
 const App: FC = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [menuKey, setMenuKey] = useState('/maker');
     const [openKey, setOpenKey] = useState<string[]>([]);
     // 刷新后定位菜单
@@ -25,6 +26,7 @@ const App: FC = () => {
         if (data) {
             setMenuKey(data);
         }
+        // eslint-disable-next-line
     }, []);
 
     const handleSelect = (e: any) => {
@@ -35,8 +37,6 @@ const App: FC = () => {
     const handleOpenChange = (keys: any) => {
         setOpenKey(keys as string[]);
     };
-
-    const navigate = useNavigate();
     return (
         <GlobalStateProvider>
             <Layout
@@ -82,9 +82,9 @@ const App: FC = () => {
                             </Routes>
                         </CSSTransition>
                     </TransitionGroup>
-                    {/*<Routes>*/}
-                    {/*    <Route path="/login" element={<Login />} />*/}
-                    {/*</Routes>*/}
+                    {/* <Routes> */}
+                    {/*    <Route path="/login" element={<Login />} /> */}
+                    {/* </Routes> */}
                 </Content>
             </Layout>
         </GlobalStateProvider>

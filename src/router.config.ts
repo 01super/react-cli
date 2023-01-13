@@ -26,14 +26,12 @@ const routes: RouteType[] = [
             },
             {
                 path: '/mine',
-                exact: true,
                 component: mine,
                 key: 'mine',
                 label: 'mine',
             },
             {
                 path: '/large-upload',
-                exact: true,
                 component: largeUpload,
                 key: 'largeUpload',
                 label: 'largeUpload',

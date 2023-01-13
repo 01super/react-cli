@@ -1,17 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import Header from '@/components/Header';
 import useCommonState from '@/store/commom';
 import style from './style.less';
 
-const Login: React.FC = () => {
+const Login: FC = () => {
     const { setUserInfo } = useCommonState.useContainer();
 
     const onFinish = (values: any) => {
         console.log('values: ', values);
         setUserInfo({ name: '用户A' });
-        location.href = '/';
+        window.location.href = '/';
     };
 
     return (

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Breadcrumb } from 'antd';
 import { useLocation } from 'react-router-dom';
 import routes from '@/router.config';

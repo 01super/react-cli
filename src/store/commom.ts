@@ -6,7 +6,11 @@ interface UserInfo {
 }
 
 const useCommonState = () => {
-    const [userInfo, setUserInfo] = useLocalStorageState<UserInfo>('userInfo', { name: '' });
+    const [userInfo, setUserInfo] = useLocalStorageState<UserInfo>('userInfo', {
+        defaultValue: {
+            name: '',
+        },
+    });
     return { userInfo, setUserInfo };
 };
 
