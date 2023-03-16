@@ -1,5 +1,6 @@
 import React from 'react';
 import { Radio, Button } from 'antd';
+import ClassicalDemo from '@/components/ClassicalDemo';
 
 const Home: React.FC = () => {
     const [value, setValue] = React.useState(1);
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
                 <Radio value={3}>3</Radio>
             </Radio.Group>
             <Button onClick={() => setValue(null)}>清除</Button>
+            <ClassicalDemo />
         </section>
     );
 };
