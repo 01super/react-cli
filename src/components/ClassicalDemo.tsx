@@ -1,5 +1,5 @@
 import React from 'react';
-import { unstable_batchedUpdates } from 'react-dom';
+import { flushSync, unstable_batchedUpdates } from 'react-dom';
 
 type IState = Readonly<{ count: number }>;
 class ClassicalDemo extends React.Component {
@@ -42,6 +42,16 @@ class ClassicalDemo extends React.Component {
         });
     };
 
+    handlePlusBySync = () => {
+        // 对象会合并，类似 Object.assign 的效果
+        flushSync(() => {
+            this.setState({
+                count: this.state.count + 1,
+            });
+        });
+        console.log(this.state.count);
+    };
+
     componentDidMount(): void {
         const $btn = document.getElementById('origin-btn') as HTMLButtonElement;
         $btn.addEventListener('click', () => {
@@ -66,6 +76,8 @@ class ClassicalDemo extends React.Component {
                 <button onClick={this.handlePlusByObj}>传对象调用多次setState +</button>
                 <p>函数无法合并，就会有多个效果产生，一次加2</p>
                 <button onClick={this.handlePlusByFn}>传函数调用多次setState +</button>
+                <p>使用 flushSync 可以让setState 同步执行</p>
+                <button onClick={this.handlePlusBySync}>flushSync异步改为同步setState +</button>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Radio, Button } from 'antd';
 import ClassicalDemo from '@/components/ClassicalDemo';
+import BatchedUpdates from '@/components/BarchedUpdates';
 
 const Home: React.FC = () => {
     const [value, setValue] = React.useState(1);
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
             </Radio.Group>
             <Button onClick={() => setValue(null)}>清除</Button>
             <ClassicalDemo />
+            <BatchedUpdates />
         </section>
     );
 };
