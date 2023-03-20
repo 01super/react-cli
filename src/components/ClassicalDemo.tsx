@@ -43,7 +43,6 @@ class ClassicalDemo extends React.Component {
     };
 
     handlePlusBySync = () => {
-        // 对象会合并，类似 Object.assign 的效果
         flushSync(() => {
             this.setState({
                 count: this.state.count + 1,

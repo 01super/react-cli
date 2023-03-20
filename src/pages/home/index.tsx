@@ -1,7 +1,8 @@
 import React from 'react';
 import { Radio, Button } from 'antd';
 import ClassicalDemo from '@/components/ClassicalDemo';
-import BatchedUpdates from '@/components/BarchedUpdates';
+import BatchedUpdates from '@/components/BatchedUpdates';
+import LifeCycle from '@/components/LifeCycle';
 
 const Home: React.FC = () => {
     const [value, setValue] = React.useState(1);
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
             <Button onClick={() => setValue(null)}>清除</Button>
             <ClassicalDemo />
             <BatchedUpdates />
+            <LifeCycle name="LifeCycle" />
         </section>
     );
 };
