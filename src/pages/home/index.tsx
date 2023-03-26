@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Radio, Button } from 'antd';
 import ClassicalDemo from '@/components/ClassicalDemo';
 import BatchedUpdates from '@/components/BatchedUpdates';
@@ -19,6 +19,10 @@ const Home: React.FC = () => {
         }
     }, [value]);
 
+    const fn = useCallback(() => {
+        throw new Error('test');
+    }, []);
+
     return (
         <section>
             <p>value: {value}</p>
@@ -29,6 +33,9 @@ const Home: React.FC = () => {
             >
                 设置value为0
             </button>
+            <br />
+            <button onClick={() => console.log(a.b)}>点击报错</button>
+            <br />
             <Radio.Group value={value} onChange={(v) => setValue(v.target.value)}>
                 <Radio value={1}>1</Radio>
                 <Radio value={2}>2</Radio>
@@ -40,6 +47,8 @@ const Home: React.FC = () => {
             <BatchedUpdates />
             <LifeCycle name="LifeCycle" />
             <LayoutEffectDemo />
+            <br />
+            <button onClick={fn}>抛出报错，测试 errorboundary</button>
         </section>
     );
 };

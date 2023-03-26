@@ -31,7 +31,7 @@ const LayoutEffectDemo = () => {
 
     useEffect(() => {
         if (height === 0) {
-            for (let i = 0; i < 9000000000; i++) {
+            for (let i = 0; i < 1000000000; i++) {
                 const a = 0,
                     b = 12;
                 const c = a + b;
