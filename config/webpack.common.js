@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDevMode = process.env.NODE_ENV === 'development';
@@ -97,7 +96,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
         }),
-        new AntdDayjsWebpackPlugin(),
         new WebpackBar(),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',

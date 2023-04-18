@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                 <Radio value={2}>2</Radio>
                 <Radio value={3}>3</Radio>
             </Radio.Group>
-            <button onClick={changeValue}>changeValue</button>
+            <Button onClick={changeValue}>changeValue</Button>
             <Button onClick={() => setValue(null)}>清除</Button>
             <ClassicalDemo />
             <BatchedUpdates />
