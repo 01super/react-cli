@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import HomeStore from '@/store/home';
+import useHomeStore from '@/store/user';
 import style from './style.less';
 import ConcurrentModeDemo from '@/components/ConcurrentModeDemo';
 
 const Mine: React.FC = () => {
-    const { title, setTitle } = HomeStore.useContainer();
+    const homeStore = useHomeStore();
+
     const [state, setState] = useState(0);
     const [height, setHeight] = useState(0);
 
@@ -16,7 +17,7 @@ const Mine: React.FC = () => {
 
     return (
         <div className={style.name}>
-            {title}
+            {homeStore.title}
             <h1>hello world</h1>
             <h2
                 onClick={(e) => {
@@ -28,8 +29,12 @@ const Mine: React.FC = () => {
             </h2>
             <code>console.log(8111111188)</code>
             <div>happy ending! 1</div>
-            <input type="text" value={title} onChange={(v) => setTitle(v.target.value)} />
-            <h1 ref={measuredRef}>{title}</h1>
+            <input
+                type="text"
+                value={homeStore.title}
+                onChange={(v) => homeStore.setTitle(v.target.value)}
+            />
+            <h1 ref={measuredRef}>{homeStore.title}</h1>
             <h2>The above header is {Math.round(height)}px tall</h2>
             <ConcurrentModeDemo />
         </div>
