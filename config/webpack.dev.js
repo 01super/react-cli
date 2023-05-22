@@ -6,6 +6,12 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 // const { DllReferencePlugin } = require('webpack');
 // const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
+const env = process.env.NODE_ENV;
+const dotenv = require('dotenv').config({
+    path: path.join(__dirname, `../.env.${env}`),
+}).parsed;
+
+console.log('dotenv', dotenv);
 
 const developmentConfig = {
     mode: 'development',

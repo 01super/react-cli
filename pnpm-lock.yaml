@@ -114,6 +114,9 @@ devDependencies:
   css-minimizer-webpack-plugin:
     specifier: ^5.0.0
     version: 5.0.0(webpack@5.79.0)
+  dotenv:
+    specifier: ^16.0.3
+    version: 16.0.3
   eslint:
     specifier: ^8.38.0
     version: 8.38.0
@@ -174,9 +177,6 @@ devDependencies:
   react-refresh:
     specifier: ^0.14.0
     version: 0.14.0
-  speed-measure-webpack-plugin:
-    specifier: ^1.5.0
-    version: 1.5.0(webpack@5.79.0)
   style-loader:
     specifier: ^3.3.2
     version: 3.3.2(webpack@5.79.0)
@@ -4370,6 +4370,11 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.5.0
+    dev: true
+
+  /dotenv@16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
     dev: true
 
   /duplexer@0.1.2:
@@ -9032,16 +9037,6 @@ packages:
       spdy-transport: 3.0.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /speed-measure-webpack-plugin@1.5.0(webpack@5.79.0):
-    resolution: {integrity: sha512-Re0wX5CtM6gW7bZA64ONOfEPEhwbiSF/vz6e2GvadjuaPrQcHTQdRGsD8+BE7iUOysXH8tIenkPCQBEcspXsNg==}
-    engines: {node: '>=6.0.0'}
-    peerDependencies:
-      webpack: ^1 || ^2 || ^3 || ^4 || ^5
-    dependencies:
-      chalk: 4.1.2
-      webpack: 5.79.0(webpack-cli@5.0.1)
     dev: true
 
   /sprintf-js@1.0.3:
