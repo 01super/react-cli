@@ -3,6 +3,11 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const env = process.env.NODE_ENV;
+
+console.log('env: ', env);
 
 const productionConfig = {
     mode: 'production',
@@ -11,7 +16,9 @@ const productionConfig = {
         path: path.resolve(__dirname, '../dist'), // 绝对路径，不设置会导致CleanWebpackPlugin插件失效
         filename: '[name].bundle.[chunkhash:7].js',
     },
-    plugins: [new CleanWebpackPlugin()],
+    plugins: [new CleanWebpackPlugin(), env === 'test' ? new BundleAnalyzerPlugin() : false].filter(
+        Boolean,
+    ),
     optimization: {
         runtimeChunk: 'single',
         // '...' can be used in optimization.minimizer to access the defaults.
