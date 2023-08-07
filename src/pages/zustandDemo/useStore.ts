@@ -1,4 +1,5 @@
-import { create } from 'zustand';
+// import { create } from 'zustand';
+import { create } from '../zustandx';
 
 type IStore = {
     count: number;
@@ -11,3 +12,7 @@ const useStore = create<IStore>((set, get) => ({
 }));
 
 export default useStore;
+
+export const desc = () => useStore().setState(p => ({
+  count: p+1
+}))

@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import useStore from './useStore';
+import useStore, { desc } from './useStore';
 
 const ZustandDemo = () => {
     const { count, increase } = useStore();
@@ -8,6 +8,9 @@ const ZustandDemo = () => {
         <div>
             count: {count}
             <Button onClick={increase}>click</Button>
+            <Button onClick={() => {
+                desc()
+            }}>desc</Button>
         </div>
     );
 };
