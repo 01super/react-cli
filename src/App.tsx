@@ -6,6 +6,7 @@ import DefaultLayout from '@/components/DefaultLayout';
 // import Login from '@/pages/login';
 import Home from '@/pages/home';
 import Mine from '@/pages/mine';
+import ZustandDemo from '@/pages/zustandDemo';
 import LargeUpload from '@/pages/largeUpload';
 import logo from '@/assets/img2.png';
 import routes from '@/router.config';
@@ -75,6 +76,7 @@ const App: FC = () => {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/mine" element={<Mine />} />
                                 <Route path="/Large-upload" element={<LargeUpload />} />
+                                <Route path="/zustand-demo" element={<ZustandDemo />} />
                                 <Route path="*" element={<NotFound />} />
                             </Route>
                         </Routes>
