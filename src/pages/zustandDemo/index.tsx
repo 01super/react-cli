@@ -1,13 +1,17 @@
-import { Button } from 'antd';
-import useStore from './useStore';
+import Count from './Count';
+import Random from './Random';
+import Demo from './Demo';
+import './style.global.less';
+import Count1 from './Count1';
 
 const ZustandDemo = () => {
-    const { count, increase } = useStore();
-    console.log('count: ', count);
+    // const [s, setS] = useState('1');
     return (
-        <div>
-            count: {count}
-            <Button onClick={increase}>click</Button>
+        <div className="zustand-demo">
+            <Count />
+            <Random />
+            <Demo />
+            <Count1 />
         </div>
     );
 };

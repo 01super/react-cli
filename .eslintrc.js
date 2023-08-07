@@ -33,6 +33,7 @@ module.exports = {
     rules: {
         'import/extensions': 'off',
         'react/function-component-definition': 'off',
+        'arrow-body-style': 'off'
         // 'no-unused-vars': ['error', { varsIgnorePattern: 'React' }],
     },
 };
