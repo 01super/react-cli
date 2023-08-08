@@ -5,6 +5,7 @@ const home = lazy(() => import('@/pages/home'));
 const mine = lazy(() => import('@/pages/mine'));
 const largeUpload = lazy(() => import('@/pages/largeUpload'));
 const zustandPage = lazy(() => import('@/pages/zustandDemo'));
+const optimize = lazy(() => import('@/pages/optimize'));
 
 export type RouteType = ItemType & {
     component?: any;
@@ -36,6 +37,12 @@ const routes: RouteType[] = [
                 component: largeUpload,
                 key: 'largeUpload',
                 label: 'largeUpload',
+            },
+            {
+                path: '/optimize',
+                component: optimize,
+                key: 'optimize',
+                label: '性能优化',
             },
             {
                 path: '/zustand-demo',
