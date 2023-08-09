@@ -1,23 +1,24 @@
 import { Button } from 'antd';
-import { memo, useEffect } from 'react';
-import useStore from './useStore';
+import { memo } from 'react';
+import useMyStore, { desc } from './useMyStore';
+import { shallow } from 'zustand/shallow';
 
 const Count = () => {
-    const { count, increase } = useStore((state) => ({
-        count: state.count,
-        increase: state.increase,
-    }));
-
-    useEffect(() => {
-        console.log('increase change');
-    }, [increase]);
-
-    // const  = store;
+    const state = useMyStore(
+        (state) => ({
+            count: state.count,
+            increase: state.increase,
+        }),
+        shallow,
+    );
+    const { count, increase } = state;
+    console.log('state: ', state);
 
     return (
-        <div className="section">
-            <div>count: {count}</div>
+        <div className="section box">
+            <h2>Count: {count}</h2>
             <Button onClick={increase}>increase count</Button>
+            <Button onClick={desc}>desc count</Button>
         </div>
     );
 };

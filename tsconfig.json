@@ -1,7 +1,7 @@
 // 通过此命令创建此文件 `npx tsc --init`
 // TypeScript 配置详解 https://juejin.cn/post/6844904093568221191
 {
-    "include": ["src"],
+    "include": ["src", "src/pages/zustandDemo/.tsx"],
     "exclude": ["config", "jest.config.js", "tsconfig.json", "node_modules", "dist", "src/typings"],
     "compilerOptions": {
         "paths": {

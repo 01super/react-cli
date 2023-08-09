@@ -1,19 +1,26 @@
 import Count from './Count';
 import Random from './Random';
-import Demo from './Demo';
+import Count1 from './GetNewVal';
+import SyncExternalStore from './SyncExternalStore';
 import './style.global.less';
-import Count1 from './Count1';
+import { memo } from 'react';
+import WidthImmer from './WidthImmer';
 
 const ZustandDemo = () => {
-    // const [s, setS] = useState('1');
     return (
-        <div className="zustand-demo">
+        <div className="zustand-demo box">
+            <ul>
+                <li>Zustand存储是一个外部存储，这使得它更适合于需要在React之外进行访问。</li>
+                <li>可以在react组件之外修改、获取state</li>
+                <li>不需要使用context provider包裹</li>
+            </ul>
+            <SyncExternalStore />
             <Count />
             <Random />
-            <Demo />
             <Count1 />
+            <WidthImmer />
         </div>
     );
 };
 
-export default ZustandDemo;
+export default memo(ZustandDemo);

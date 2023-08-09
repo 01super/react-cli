@@ -1,9 +1,14 @@
-import { createStore } from 'zustand/vanilla';
-export * from 'zustand/vanilla';
+import { createStore } from './vanilla';
+
 import { useDebugValue } from 'react';
+
+// 做兼容用的，比如旧版的 react 没有这个 hooks，但是可以使用这个
 import useSyncExternalStoreExports from 'use-sync-external-store/shim/with-selector.js';
 
+export * from './vanilla';
+
 const { useSyncExternalStoreWithSelector } = useSyncExternalStoreExports;
+
 function useStore(api, selector = api.getState, equalityFn) {
     if (process.env.NODE_ENV !== 'production' && equalityFn) {
         console.warn(
@@ -20,6 +25,7 @@ function useStore(api, selector = api.getState, equalityFn) {
     useDebugValue(slice);
     return slice;
 }
+
 const createImpl = (createState) => {
     if (process.env.NODE_ENV !== 'production' && typeof createState !== 'function') {
         console.warn(
@@ -32,6 +38,7 @@ const createImpl = (createState) => {
     return useBoundStore;
 };
 const create = (createState) => (createState ? createImpl(createState) : createImpl);
+
 var react = (createState) => {
     if (process.env.NODE_ENV !== 'production') {
         console.warn(

@@ -71,6 +71,7 @@ const App: FC = () => {
             </Sider>
             <Content style={{ flex: 1 }}>
                 <TransitionGroup>
+                    {/* TODO: 使用location.pathname 还是 location.key */}
                     <CSSTransition key={location.key} classNames="fade" timeout={300}>
                         <Routes location={location}>
                             <Route path="/" element={<DefaultLayout />}>
@@ -78,7 +79,7 @@ const App: FC = () => {
                                 <Route path="/mine" element={<Mine />} />
                                 <Route path="/Large-upload" element={<LargeUpload />} />
                                 <Route path="/zustand-demo" element={<ZustandDemo />} />
-                  <Route path="/optimize" element={<Optimize />} />
+                                <Route path="/optimize" element={<Optimize />} />
                                 <Route path="*" element={<NotFound />} />
                             </Route>
                         </Routes>
