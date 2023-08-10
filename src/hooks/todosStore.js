@@ -7,6 +7,10 @@ export const todosStore = {
         todos = [...todos, { id: nextId++, text: 'Todo #' + nextId }];
         emitChange();
     },
+    deleteTodo(id) {
+        todos = todos.filter((todo) => todo.id !== id);
+        emitChange();
+    },
     subscribe(listener) {
         console.log('listener: ', listener);
         listeners = [...listeners, listener];
@@ -21,6 +25,7 @@ export const todosStore = {
 
 function emitChange() {
     for (let listener of listeners) {
+        console.log('listener: ', listener);
         listener();
     }
 }

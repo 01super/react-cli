@@ -46,6 +46,7 @@ const WidthImmer = () => {
                         padding: '10px',
                         margin: '10px 0',
                         border: '1px solid #ccc',
+                        cursor: 'pointer',
                     }}
                     key={key}
                     onClick={() => {

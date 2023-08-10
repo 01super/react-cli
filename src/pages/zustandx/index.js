@@ -17,11 +17,13 @@ export function useStore(api, selector = api.getState, equalityFn) {
 }
 
 export const create = (createState) => {
+    // 闭包
     const api = createStore(createState);
 
     // 可能需要一些 selector, 自定义比较变化函数
     const useBoundStore = (selector, equalityFn) => useStore(api, selector, equalityFn);
 
+    // 添加api
     Object.assign(useBoundStore, api);
 
     return useBoundStore;

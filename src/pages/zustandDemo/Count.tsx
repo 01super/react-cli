@@ -19,6 +19,13 @@ const Count = () => {
             <h2>Count: {count}</h2>
             <Button onClick={increase}>increase count</Button>
             <Button onClick={desc}>desc count</Button>
+            <Button
+                onClick={() => {
+                    useMyStore.setState({ count: state.count });
+                }}
+            >
+                set count noChange
+            </Button>
         </div>
     );
 };

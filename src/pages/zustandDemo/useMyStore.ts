@@ -4,12 +4,15 @@ import { create } from '../zustandx';
 
 const useMyStore = create(
     // 使用 redux-devtools 来观察state的变化, 对于层级深，数据复杂的
-    devtools((set, get) => ({
-        count: 1,
-        increase: () => set(() => ({ count: get().count + 1 })),
-        randomNum: 0,
-        setRandomNum: () => set(() => ({ randomNum: Math.random() })),
-    })),
+    devtools(
+        (set, get) => ({
+            count: 1,
+            increase: () => set(() => ({ count: get().count + 1 })),
+            randomNum: 0,
+            setRandomNum: () => set(() => ({ randomNum: Math.random() })),
+        }),
+        { name: 'MyStore' },
+    ),
 );
 
 export default useMyStore;

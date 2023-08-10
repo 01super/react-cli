@@ -25,20 +25,27 @@ export const createStore = (createState) => {
 
         // 判断状态值是否改变
         if (!Object.is(nextState, state)) {
+            // 存下之前的值
             const previousState = state;
+            // 修改现在的值
             state =
                 replace ?? typeof nextState !== 'object'
                     ? nextState
                     : Object.assign({}, state, nextState);
+            // 触发监听，react会判断，同时给监听的回调函数传上新值和旧值
             listeners.forEach((listener) => listener(state, previousState));
         }
     };
 
     const subscribe = (listener) => {
+        // 这里可以查看react源码里面的处理
+        console.log('listener: ', listener);
         listeners.add(listener);
+        // 返回一个取消订阅的函数
         return () => listeners.delete(listener);
     };
 
+    // 删除所有订阅
     const destroy = () => {
         listeners.clear();
     };

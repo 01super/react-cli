@@ -20,7 +20,9 @@ const SyncExternalStore = () => {
             <hr />
             <ul>
                 {todos.map((todo) => (
-                    <li key={todo.id}>{todo.text}</li>
+                    <li key={todo.id} onClick={() => todosStore.deleteTodo(todo.id)}>
+                        {todo.text}
+                    </li>
                 ))}
             </ul>
         </div>
