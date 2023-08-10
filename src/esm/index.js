@@ -32,9 +32,13 @@ const createImpl = (createState) => {
             "[DEPRECATED] Passing a vanilla store will be unsupported in a future version. Instead use `import { useStore } from 'zustand'`.",
         );
     }
+
+    // 创建一个闭包
     const api = typeof createState === 'function' ? createStore(createState) : createState;
+
     const useBoundStore = (selector, equalityFn) => useStore(api, selector, equalityFn);
     Object.assign(useBoundStore, api);
+    // 执行create()后拿到的一个hooks
     return useBoundStore;
 };
 const create = (createState) => (createState ? createImpl(createState) : createImpl);

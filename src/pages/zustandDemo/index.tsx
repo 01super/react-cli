@@ -19,6 +19,10 @@ const ZustandDemo = () => {
             <Random />
             <Count1 />
             <WidthImmer />
+            <div className="box">
+                常用的中间件：devtools(store, {'{name: "MyStore"}'}
+                )、Persist、immer、subscribeWithSelector
+            </div>
         </div>
     );
 };

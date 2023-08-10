@@ -1,6 +1,7 @@
 // import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { create } from '../zustandx';
+import { immer } from '@/esm/middleware/immer';
 
 const useMyStore = create(
     // 使用 redux-devtools 来观察state的变化, 对于层级深，数据复杂的

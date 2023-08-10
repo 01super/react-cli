@@ -1,5 +1,7 @@
 const createStoreImpl = (createState) => {
+    // 状态
     let state;
+    // 订阅集合
     const listeners = /* @__PURE__ */ new Set();
     const setState = (partial, replace) => {
         const nextState = typeof partial === 'function' ? partial(state) : partial;

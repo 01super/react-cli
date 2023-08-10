@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import useMyStore, { desc } from './useMyStore';
 import { shallow } from 'zustand/shallow';
 
@@ -13,6 +13,11 @@ const Count = () => {
     );
     const { count, increase } = state;
     console.log('state: ', state);
+
+    useEffect(() => {
+        const listener = useMyStore.subscribe((...res) => console.log('my log:::: ', ...res));
+        return listener;
+    }, []);
 
     return (
         <div className="section box">

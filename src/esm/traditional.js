@@ -2,6 +2,7 @@ import { useDebugValue } from 'react';
 import useSyncExternalStoreExports from 'use-sync-external-store/shim/with-selector.js';
 import { createStore } from 'zustand/vanilla';
 
+// https://github.com/pmndrs/zustand/discussions/1937
 const { useSyncExternalStoreWithSelector } = useSyncExternalStoreExports;
 
 function useStoreWithEqualityFn(api, selector = api.getState, equalityFn) {
