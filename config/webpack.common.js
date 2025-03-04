@@ -43,6 +43,8 @@ module.exports = {
                 test: /\.(le|c)ss$/,
                 exclude: /node_modules/, // 排除node_modules文件夹下面的样式文件
                 use: [
+                    // style-loader 会将css-loader解析的css使用style标签插入到html中
+                    // MiniCssExtractPlugin.loader 会将css提取到单独的css文件中
                     isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
